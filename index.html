@@ -65,8 +65,6 @@
             height: 24px;
             margin-right: 8px;
         }
-        /* Custom styles for the interactive map demo section */
-        .card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
         /* Critical: give the map a real height for display */
         #vietnam-map { height: 420px; width: 100%; border-radius: 12px; }
         #demo-results { display: none; text-align: center; font-weight: 700; color: #4A5C2F; margin-top: 16px; }
@@ -136,7 +134,7 @@
                          <h4 class="text-2xl font-bold">Visualizing the Economic Impact</h4>
                          <p class="text-gray-600 max-w-2xl mx-auto">Our technology fundamentally changes the financial equation for carbon farming. This chart illustrates the dramatic cost reduction our platform provides compared to traditional systems.</p>
                     </div>
-                    <div class="chart-container bg-white p-4 rounded-xl shadow-lg mx-auto" style="position: relative; height: 50vh; max-height: 400px; width: 100%; max-w-700px;">
+                    <div class="bg-white p-4 rounded-xl shadow-lg mx-auto w-full max-w-2xl h-96">
                         <canvas id="costChart"></canvas>
                     </div>
                 </div>
@@ -249,10 +247,10 @@
                     <h3 class="text-3xl md:text-4xl font-bold mb-4">Regenerative Potential Demo</h3>
                     <p class="max-w-3xl mx-auto text-gray-600 text-lg">See the potential of regenerative agriculture in Vietnam. Click on the map to drop a pin and calculate estimated credit revenue.</p>
                 </div>
-                <div class="card">
+                <div class="card mx-auto w-full max-w-2xl">
                     <div id="vietnam-map"></div>
-                    <div id="demo-results">
-                        Potential annual credit revenue per hectare: <span id="revenue-value">$0</span>
+                    <div id="demo-results" class="p-4 rounded-xl shadow-inner bg-[#e6ffe6] mt-4">
+                        Potential annual credit revenue per hectare: <span id="revenue-value" class="font-bold text-[#4A5C2F]">$0</span>
                     </div>
                 </div>
             </div>
