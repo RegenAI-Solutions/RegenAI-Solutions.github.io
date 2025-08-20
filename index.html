@@ -80,13 +80,19 @@
                 <h1 class="text-2xl font-bold text-[#4A5C2F]">RegenAI</h1>
             </div>
             <nav class="hidden md:flex space-x-8">
-                <a href="#solution" class="nav-link text-gray-600 font-medium">Our Solution</a>
-                <a href="#how-it-works" class="nav-link text-gray-600 font-medium">How It Works</a>
-                <a href="#impact" class="nav-link text-gray-600 font-medium">Impact</a>
-                <a href="#advantage" class="nav-link text-gray-600 font-medium">Advantage</a>
-                <a href="#demo-app" class="nav-link text-gray-600 font-medium">Demo</a>
+                <a href="#solution" class="nav-link text-gray-600 font-medium" data-translate="nav-solution">Our Solution</a>
+                <a href="#how-it-works" class="nav-link text-gray-600 font-medium" data-translate="nav-how-it-works">How It Works</a>
+                <a href="#impact" class="nav-link text-gray-600 font-medium" data-translate="nav-impact">Impact</a>
+                <a href="#advantage" class="nav-link text-gray-600 font-medium" data-translate="nav-advantage">Advantage</a>
+                <a href="#demo-app" class="nav-link text-gray-600 font-medium" data-translate="nav-demo">Demo</a>
             </nav>
-            <a href="#contact" class="cta-button bg-[#6B8E23] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#55711B]">Contact</a>
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="cta-button bg-[#6B8E23] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#55711B]" data-translate="nav-contact">Contact</a>
+                <div class="flex space-x-2">
+                    <button id="lang-en" class="text-gray-600 font-medium hover:text-[#6B8E23] font-bold">EN</button>
+                    <button id="lang-vi" class="text-gray-600 font-medium hover:text-[#6B8E23]">VI</button>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -94,16 +100,16 @@
         <section id="hero" class="h-screen flex items-center justify-center text-white bg-hero-pattern">
             <div class="bg-black/50 absolute inset-0"></div>
             <div class="text-center z-10 p-4">
-                <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4 fade-in">Empowering Farmers, Restoring Our Planet.</h2>
-                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 fade-in" style="animation-delay: 0.2s;">We're democratizing the carbon market for smallholder farmers with our revolutionary, low-cost, AI-powered platform.</p>
-                <a href="#solution" class="cta-button bg-[#6B8E23] text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-[#55711B] fade-in" style="animation-delay: 0.4s;">Discover Our Solution</a>
+                <h2 id="hero-heading" class="text-4xl md:text-6xl font-bold leading-tight mb-4 fade-in">Empowering Farmers, Restoring Our Planet.</h2>
+                <p id="hero-paragraph" class="text-lg md:text-xl max-w-3xl mx-auto mb-8 fade-in" style="animation-delay: 0.2s;">We're democratizing the carbon market for smallholder farmers with our revolutionary, low-cost, AI-powered platform.</p>
+                <a href="#solution" id="hero-cta" class="cta-button bg-[#6B8E23] text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-[#55711B] fade-in" style="animation-delay: 0.4s;">Discover Our Solution</a>
             </div>
         </section>
 
         <section id="problem" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">A System That Excludes the Majority</h3>
-                <p class="max-w-4xl mx-auto text-gray-600 text-lg">
+                <h3 id="problem-heading" class="text-3xl md:text-4xl font-bold mb-4">A System That Excludes the Majority</h3>
+                <p id="problem-paragraph" class="max-w-4xl mx-auto text-gray-600 text-lg">
                     The global carbon market holds immense promise, but high costs, complex science, and burdensome paperwork create insurmountable barriers for smallholder farmers. This inefficiency not only hinders farmers but also represents a massive, untapped opportunity for scalable climate action.
                 </p>
             </div>
@@ -112,28 +118,28 @@
         <section id="solution" class="py-20 bg-[#F7F6F2]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Our Solution: The RegenAI MMRV Suite</h3>
-                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">We've developed a cutting-edge MMRV platform that removes these barriers. Our system is built on three core pillars that create a powerful, scalable, and accessible solution.</p>
+                    <h3 id="solution-heading" class="text-3xl md:text-4xl font-bold mb-4">Our Solution: The RegenAI MMRV Suite</h3>
+                    <p id="solution-paragraph" class="max-w-3xl mx-auto text-gray-600 text-lg">We've developed a cutting-edge MMRV platform that removes these barriers. Our system is built on three core pillars that create a powerful, scalable, and accessible solution.</p>
                 </div>
                 <!-- The grid is now consistent with equal width and height columns -->
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 items-stretch">
                     <div class="bg-white p-8 rounded-xl shadow-md text-center">
-                        <h4 class="text-xl font-bold mb-2">Scientifically-Credible Modeling</h4>
-                        <p class="text-gray-600">Built on the DayCent model, developed over 45 years by Colorado State University, ensuring the highest quality carbon credits that meet rigorous registry standards.</p>
+                        <h4 id="solution-pillar-1-heading" class="text-xl font-bold mb-2">Scientifically-Credible Modeling</h4>
+                        <p id="solution-pillar-1-paragraph" class="text-gray-600">Built on the DayCent model, developed over 45 years by Colorado State University, ensuring the highest quality carbon credits that meet rigorous registry standards.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-md text-center">
-                        <h4 class="text-xl font-bold mb-2">AI-Powered Automation</h4>
-                        <p class="text-gray-600">Our AI-driven pipelines and forthcoming Model Context Protocol (MCP) automate the entire MMRV process, enabling unprecedented scale.</p>
+                        <h4 id="solution-pillar-2-heading" class="text-xl font-bold mb-2">AI-Powered Automation</h4>
+                        <p id="solution-pillar-2-paragraph" class="text-gray-600">Our AI-driven pipelines and forthcoming Model Context Protocol (MCP) automate the entire MMRV process, enabling unprecedented scale.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-md text-center">
-                        <h4 class="text-xl font-bold mb-2">Drastic Cost Reduction</h4>
-                        <p class="text-gray-600">By leveraging trained AI agents, we reduce MMRV costs by 80%, making carbon markets economically viable for smallholders for the first time.</p>
+                        <h4 id="solution-pillar-3-heading" class="text-xl font-bold mb-2">Drastic Cost Reduction</h4>
+                        <p id="solution-pillar-3-paragraph" class="text-gray-600">By leveraging trained AI agents, we reduce MMRV costs by 80%, making carbon markets economically viable for smallholders for the first time.</p>
                     </div>
                 </div>
                 <div class="mt-16">
                     <div class="text-center mb-6">
-                         <h4 class="text-2xl font-bold">Visualizing the Economic Impact</h4>
-                         <p class="text-gray-600 max-w-2xl mx-auto">Our technology fundamentally changes the financial equation for carbon farming. This chart illustrates the dramatic cost reduction our platform provides compared to traditional systems.</p>
+                         <h4 id="chart-heading" class="text-2xl font-bold">Visualizing the Economic Impact</h4>
+                         <p id="chart-paragraph" class="text-gray-600 max-w-2xl mx-auto">Our technology fundamentally changes the financial equation for carbon farming. This chart illustrates the dramatic cost reduction our platform provides compared to traditional systems.</p>
                     </div>
                     <div class="bg-white p-4 rounded-xl shadow-lg mx-auto w-full max-w-2xl h-96">
                         <canvas id="costChart"></canvas>
@@ -145,20 +151,20 @@
         <section id="how-it-works" class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4">A Simple Path to Carbon Credits</h3>
-                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">Our process is designed for simplicity and accessibility. Click each step to learn more about how we turn sustainable practices into tangible revenue.</p>
+                    <h3 id="how-it-works-heading" class="text-3xl md:text-4xl font-bold mb-4">A Simple Path to Carbon Credits</h3>
+                    <p id="how-it-works-paragraph" class="max-w-3xl mx-auto text-gray-600 text-lg">Our process is designed for simplicity and accessibility. Click each step to learn more about how we turn sustainable practices into tangible revenue.</p>
                 </div>
                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0 mb-8">
                     <div id="step-1" class="process-step active bg-gray-100 p-6 rounded-lg w-full md:w-1/3 text-center">
-                        <h5 class="font-bold">1. Flexible Data Collection</h5>
+                        <h5 class="font-bold" data-translate-step="step-1">1. Flexible Data Collection</h5>
                     </div>
                     <div class="text-gray-400 text-2xl hidden md:block mx-4">→</div>
                     <div id="step-2" class="process-step bg-gray-100 p-6 rounded-lg w-full md:w-1/3 text-center">
-                        <h5 class="font-bold">2. Automated Analysis</h5>
+                        <h5 class="font-bold" data-translate-step="step-2">2. Automated Analysis</h5>
                     </div>
                     <div class="text-gray-400 text-2xl hidden md:block mx-4">→</div>
                     <div id="step-3" class="process-step bg-gray-100 p-6 rounded-lg w-full md:w-1/3 text-center">
-                        <h5 class="font-bold">3. Unlock New Revenue</h5>
+                        <h5 class="font-bold" data-translate-step="step-3">3. Unlock New Revenue</h5>
                     </div>
                 </div>
                 <!-- The container below now uses flexbox to arrange content -->
@@ -178,12 +184,12 @@
         <section id="impact" class="py-20 bg-[#F7F6F2]">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Validated by Leading Institutions</h3>
-                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">Our technology is not just a promise; it's proven in the field and validated through key partnerships.</p>
+                    <h3 id="impact-heading" class="text-3xl md:text-4xl font-bold mb-4">Validated by Leading Institutions</h3>
+                    <p id="impact-paragraph" class="max-w-3xl mx-auto text-gray-600 text-lg">Our technology is not just a promise; it's proven in the field and validated through key partnerships.</p>
                 </div>
                 <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
                     <div>
-                        <p class="text-lg text-gray-700">
+                        <p id="impact-text" class="text-lg text-gray-700">
                             We've partnered with <strong class="text-[#4A5C2F]">The Center for Regenerative Agriculture and Resilient Systems (CRARS) at California State University, Chico</strong>, to power their carbon quantification efforts. This collaboration demonstrates the robustness and reliability of our platform in a real-world, academic setting, validating our approach and showcasing its potential for widespread adoption.
                         </p>
                     </div>
@@ -196,44 +202,44 @@
         
         <section id="advantage" class="py-20 bg-white">
              <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">The RegenAI Advantage</h3>
-                <p class="max-w-4xl mx-auto text-gray-600 text-lg mb-8">
+                <h3 id="advantage-heading" class="text-3xl md:text-4xl font-bold mb-4">The RegenAI Advantage</h3>
+                <p id="advantage-paragraph" class="max-w-4xl mx-auto text-gray-600 text-lg mb-8">
                     While other MMRV systems exist, they often rely on expensive, proprietary models or manual data entry. Our unique combination of a trusted, open-source scientific model (DayCent) with cutting-edge AI for data ingestion and automation sets us apart. We are the only platform designed from the ground up for true scalability and accessibility, creating a defensible market position and a powerful engine for global impact.
                 </p>
                 <div class="flex justify-center">
                     <table class="w-full max-w-4xl text-left border-collapse rounded-xl overflow-hidden shadow-lg">
                         <thead class="bg-[#e6ffe6] text-gray-800">
                             <tr>
-                                <th class="py-4 px-6 font-bold text-lg border-b border-gray-200">Feature</th>
-                                <th class="py-4 px-6 font-bold text-lg border-b border-gray-200">RegenAI Solutions</th>
-                                <th class="py-4 px-6 font-bold text-lg border-b border-gray-200">Competitors</th>
+                                <th id="table-header-1" class="py-4 px-6 font-bold text-lg border-b border-gray-200">Feature</th>
+                                <th id="table-header-2" class="py-4 px-6 font-bold text-lg border-b border-gray-200">RegenAI Solutions</th>
+                                <th id="table-header-3" class="py-4 px-6 font-bold text-lg border-b border-gray-200">Competitors</th>
                             </tr>
                         </thead>
                         <tbody class="bg-white">
                             <tr>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Measurement</td>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">High-precision SOC with DayCent + ground truthing</td>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Generic datasets, lower accuracy</td>
+                                <td id="table-row-1-col-1" class="py-4 px-6 border-b border-gray-200 text-gray-700">Measurement</td>
+                                <td id="table-row-1-col-2" class="py-4 px-6 border-b border-gray-200 text-gray-700">High-precision SOC with DayCent + ground truthing</td>
+                                <td id="table-row-1-col-3" class="py-4 px-6 border-b border-gray-200 text-gray-700">Generic datasets, lower accuracy</td>
                             </tr>
                             <tr>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Monitoring</td>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Automated real-time cloud monitoring</td>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Periodic manual checks</td>
+                                <td id="table-row-2-col-1" class="py-4 px-6 border-b border-gray-200 text-gray-700">Monitoring</td>
+                                <td id="table-row-2-col-2" class="py-4 px-6 border-b border-gray-200 text-gray-700">Automated real-time cloud monitoring</td>
+                                <td id="table-row-2-col-3" class="py-4 px-6 border-b border-gray-200 text-gray-700">Periodic manual checks</td>
                             </tr>
                             <tr>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Reporting</td>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Verra-compatible automated reports at scale</td>
-                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Static reports, often PDF only</td>
+                                <td id="table-row-3-col-1" class="py-4 px-6 border-b border-gray-200 text-gray-700">Reporting</td>
+                                <td id="table-row-3-col-2" class="py-4 px-6 border-b border-gray-200 text-gray-700">Verra-compatible automated reports at scale</td>
+                                <td id="table-row-3-col-3" class="py-4 px-6 border-b border-gray-200 text-gray-700">Static reports, often PDF only</td>
                             </tr>
                             <tr>
-                                <td class="py-4 px-6 border-gray-200 text-gray-700">Verification</td>
-                                <td class="py-4 px-6 border-gray-200 text-gray-700">Built-in protocols, reduced costs & faster validation</td>
-                                <td class="py-4 px-6 border-gray-200 text-gray-700">Manual, costly, error-prone processes</td>
+                                <td id="table-row-4-col-1" class="py-4 px-6 border-gray-200 text-gray-700">Verification</td>
+                                <td id="table-row-4-col-2" class="py-4 px-6 border-gray-200 text-gray-700">Built-in protocols, reduced costs & faster validation</td>
+                                <td id="table-row-4-col-3" class="py-4 px-6 border-gray-200 text-gray-700">Manual, costly, error-prone processes</td>
                             </tr>
                             <tr>
-                                <td class="py-4 px-6 border-gray-200 text-gray-700">Farmer Support</td>
-                                <td class="py-4 px-6 border-gray-200 text-gray-700">Adoption incentives + technical training</td>
-                                <td class="py-4 px-6 border-gray-200 text-gray-700">Limited or no direct farmer incentives</td>
+                                <td id="table-row-5-col-1" class="py-4 px-6 border-gray-200 text-gray-700">Farmer Support</td>
+                                <td id="table-row-5-col-2" class="py-4 px-6 border-gray-200 text-gray-700">Adoption incentives + technical training</td>
+                                <td id="table-row-5-col-3" class="py-4 px-6 border-gray-200 text-gray-700">Limited or no direct farmer incentives</td>
                             </tr>
                         </tbody>
                     </table>
@@ -245,13 +251,13 @@
         <section id="demo-app" class="py-20 bg-[#F7F6F2]">
             <div class="container mx-auto px-6">
                 <div class="header text-center mb-12">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Regenerative Potential Demo</h3>
-                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">See the potential of regenerative agriculture in Vietnam. Click on the map to drop a pin and calculate estimated credit revenue.</p>
+                    <h3 id="demo-heading" class="text-3xl md:text-4xl font-bold mb-4">Regenerative Potential Demo</h3>
+                    <p id="demo-paragraph" class="max-w-3xl mx-auto text-gray-600 text-lg">See the potential of regenerative agriculture in Vietnam. Click on the map to drop a pin and calculate estimated credit revenue.</p>
                 </div>
                 <div class="card mx-auto w-full max-w-2xl">
                     <div id="vietnam-map"></div>
                     <div id="demo-results" class="p-4 rounded-xl shadow-inner bg-[#e6ffe6] mt-4">
-                        Potential annual credit revenue per hectare: <span id="revenue-value" class="font-bold text-[#4A5C2F]">$0</span>
+                        <span id="demo-results-text">Potential annual credit revenue per hectare: </span><span id="revenue-value" class="font-bold text-[#4A5C2F]">$0</span>
                     </div>
                 </div>
             </div>
@@ -259,18 +265,18 @@
 
         <section id="contact" class="py-20 bg-[#4A5C2F] text-white">
             <div class="container mx-auto px-6 text-center">
-                <h3 class="text-3xl md:text-4xl font-bold mb-4">Join the Regenerative Revolution</h3>
-                <p class="max-w-3xl mx-auto text-lg mb-8">
+                <h3 id="contact-heading" class="text-3xl md:text-4xl font-bold mb-4">Join the Regenerative Revolution</h3>
+                <p id="contact-paragraph" class="max-w-3xl mx-auto text-lg mb-8">
                     Are you a smallholder farmer, an agricultural cooperative, or a sustainable development organization? Or are you an investor looking to fuel a scalable solution to one of the world's most pressing problems? Partner with us to unlock the power of the carbon market.
                 </p>
-                <a href="mailto:info@regenaisolutions.com" class="cta-button bg-white text-[#4A5C2F] font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200">Contact Us to Learn More</a>
+                <a href="mailto:info@regenaisolutions.com" id="contact-cta" class="cta-button bg-white text-[#4A5C2F] font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200">Contact Us to Learn More</a>
             </div>
         </section>
     </main>
 
     <footer class="bg-[#F7F6F2] py-6">
         <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; 2025 RegenAI. All Rights Reserved.</p>
+            <p id="footer-text">&copy; 2025 RegenAI. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -344,29 +350,157 @@
             const costChartCtx = document.getElementById('costChart').getContext('2d');
             new Chart(costChartCtx, costConfig);
 
+            const translations = {
+                en: {
+                    title: "RegenAI: Empowering Farmers, Restoring Our Planet",
+                    navSolution: "Our Solution",
+                    navHowItWorks: "How It Works",
+                    navImpact: "Impact",
+                    navAdvantage: "Advantage",
+                    navDemo: "Demo",
+                    navContact: "Contact",
+                    heroHeading: "Empowering Farmers, Restoring Our Planet.",
+                    heroParagraph: "We're democratizing the carbon market for smallholder farmers with our revolutionary, low-cost, AI-powered platform.",
+                    heroCta: "Discover Our Solution",
+                    problemHeading: "A System That Excludes the Majority",
+                    problemParagraph: "The global carbon market holds immense promise, but high costs, complex science, and burdensome paperwork create insurmountable barriers for smallholder farmers. This inefficiency not only hinders farmers but also represents a massive, untapped opportunity for scalable climate action.",
+                    solutionHeading: "Our Solution: The RegenAI MMRV Suite",
+                    solutionParagraph: "We've developed a cutting-edge MMRV platform that removes these barriers. Our system is built on three core pillars that create a powerful, scalable, and accessible solution.",
+                    solutionPillar1Heading: "Scientifically-Credible Modeling",
+                    solutionPillar1Paragraph: "Built on the DayCent model, developed over 45 years by Colorado State University, ensuring the highest quality carbon credits that meet rigorous registry standards.",
+                    solutionPillar2Heading: "AI-Powered Automation",
+                    solutionPillar2Paragraph: "Our AI-driven pipelines and forthcoming Model Context Protocol (MCP) automate the entire MMRV process, enabling unprecedented scale.",
+                    solutionPillar3Heading: "Drastic Cost Reduction",
+                    solutionPillar3Paragraph: "By leveraging trained AI agents, we reduce MMRV costs by 80%, making carbon markets economically viable for smallholders for the first time.",
+                    chartHeading: "Visualizing the Economic Impact",
+                    chartParagraph: "Our technology fundamentally changes the financial equation for carbon farming. This chart illustrates the dramatic cost reduction our platform provides compared to traditional systems.",
+                    howItWorksHeading: "A Simple Path to Carbon Credits",
+                    howItWorksParagraph: "Our process is designed for simplicity and accessibility. Click each step to learn more about how we turn sustainable practices into tangible revenue.",
+                    step1: "1. Flexible Data Collection",
+                    step1Text: "Forget cumbersome interfaces. We meet farmers where they are. Our system uses advanced Large Language Models (LLMs) to extract necessary data from any format—be it paper records, surveys, Excel files, audio notes, or even videos. This removes technical barriers and streamlines the data pipeline.",
+                    step2: "2. Automated Analysis",
+                    step2Text: "The RegenAI MMRV Suite takes over, running complex simulations with the DayCent model and generating the necessary reports for carbon registries like Verra and Gold Standard. Our robust, LLM-supported APIs allow for seamless integration and automatic interaction.",
+                    step3: "3. Unlock New Revenue",
+                    step3Text: "With verified carbon credits, farmers can tap into a new stream of income, rewarding them for their sustainable land management practices. This creates a resilient, profitable future for their communities and contributes directly to global climate goals.",
+                    impactHeading: "Validated by Leading Institutions",
+                    impactParagraph: "Our technology is not just a promise; it's proven in the field and validated through key partnerships.",
+                    impactText: "We've partnered with <strong class='text-[#4A5C2F]'>The Center for Regenerative Agriculture and Resilient Systems (CRARS) at California State University, Chico</strong>, to power their carbon quantification efforts. This collaboration demonstrates the robustness and reliability of our platform in a real-world, academic setting, validating our approach and showcasing its potential for widespread adoption.",
+                    advantageHeading: "The RegenAI Advantage",
+                    advantageParagraph: "While other MMRV systems exist, they often rely on expensive, proprietary models or manual data entry. Our unique combination of a trusted, open-source scientific model (DayCent) with cutting-edge AI for data ingestion and automation sets us apart. We are the only platform designed from the ground up for true scalability and accessibility, creating a defensible market position and a powerful engine for global impact.",
+                    tableHeader1: "Feature",
+                    tableHeader2: "RegenAI Solutions",
+                    tableHeader3: "Competitors",
+                    tableRow1Col1: "Measurement",
+                    tableRow1Col2: "High-precision SOC with DayCent + ground truthing",
+                    tableRow1Col3: "Generic datasets, lower accuracy",
+                    tableRow2Col1: "Monitoring",
+                    tableRow2Col2: "Automated real-time cloud monitoring",
+                    tableRow2Col3: "Periodic manual checks",
+                    tableRow3Col1: "Reporting",
+                    tableRow3Col2: "Verra-compatible automated reports at scale",
+                    tableRow3Col3: "Static reports, often PDF only",
+                    tableRow4Col1: "Verification",
+                    tableRow4Col2: "Built-in protocols, reduced costs & faster validation",
+                    tableRow4Col3: "Manual, costly, error-prone processes",
+                    tableRow5Col1: "Farmer Support",
+                    tableRow5Col2: "Adoption incentives + technical training",
+                    tableRow5Col3: "Limited or no direct farmer incentives",
+                    demoHeading: "Regenerative Potential Demo",
+                    demoParagraph: "See the potential of regenerative agriculture in Vietnam. Click on the map to drop a pin and calculate estimated credit revenue.",
+                    demoResultsText: "Potential annual credit revenue per hectare: ",
+                    contactHeading: "Join the Regenerative Revolution",
+                    contactParagraph: "Are you a smallholder farmer, an agricultural cooperative, or a sustainable development organization? Or are you an investor looking to fuel a scalable solution to one of the world's most pressing problems? Partner with us to unlock the power of the carbon market.",
+                    contactCta: "Contact Us to Learn More",
+                    footerText: "© 2025 RegenAI. All Rights Reserved."
+                },
+                vi: {
+                    title: "RegenAI: Trao Quyền Cho Nông Dân, Phục Hồi Hành Tinh",
+                    navSolution: "Giải Pháp Của Chúng Tôi",
+                    navHowItWorks: "Cách Hoạt Động",
+                    navImpact: "Tác Động",
+                    navAdvantage: "Lợi Thế",
+                    navDemo: "Demo",
+                    navContact: "Liên Hệ",
+                    heroHeading: "Trao Quyền Cho Nông Dân, Phục Hồi Hành Tinh.",
+                    heroParagraph: "Chúng tôi dân chủ hóa thị trường carbon cho các nông hộ nhỏ với nền tảng đột phá, chi phí thấp, được hỗ trợ bởi AI.",
+                    heroCta: "Khám Phá Giải Pháp",
+                    problemHeading: "Một Hệ Thống Loại Trừ Phần Lớn",
+                    problemParagraph: "Thị trường carbon toàn cầu đầy hứa hẹn, nhưng chi phí cao, khoa học phức tạp và thủ tục giấy tờ rườm rà tạo ra những rào cản không thể vượt qua cho các nông hộ nhỏ. Sự kém hiệu quả này không chỉ cản trở nông dân mà còn là một cơ hội lớn chưa được khai thác để hành động vì khí hậu có quy mô.",
+                    solutionHeading: "Giải Pháp Của Chúng Tôi: Bộ Giải Pháp MMRV của RegenAI",
+                    solutionParagraph: "Chúng tôi đã phát triển một nền tảng MMRV tiên tiến loại bỏ những rào cản này. Hệ thống của chúng tôi được xây dựng trên ba trụ cột cốt lõi tạo ra một giải pháp mạnh mẽ, có thể mở rộng và dễ tiếp cận.",
+                    solutionPillar1Heading: "Mô Hình Hóa Đáng Tin Cậy về Mặt Khoa Học",
+                    solutionPillar1Paragraph: "Được xây dựng trên mô hình DayCent, được phát triển hơn 45 năm bởi Đại học Bang Colorado, đảm bảo các tín chỉ carbon chất lượng cao nhất đáp ứng các tiêu chuẩn đăng ký nghiêm ngặt.",
+                    solutionPillar2Heading: "Tự Động Hóa Bằng AI",
+                    solutionPillar2Paragraph: "Các quy trình được điều khiển bằng AI và Giao thức ngữ cảnh mô hình (MCP) sắp ra mắt của chúng tôi tự động hóa toàn bộ quy trình MMRV, cho phép mở rộng quy mô chưa từng có.",
+                    solutionPillar3Heading: "Giảm Chi Phí Đáng Kể",
+                    solutionPillar3Paragraph: "Bằng cách tận dụng các tác nhân AI đã được đào tạo, chúng tôi giảm 80% chi phí MMRV, làm cho thị trường carbon khả thi về mặt kinh tế cho các nông hộ nhỏ lần đầu tiên.",
+                    chartHeading: "Trực Quan Hóa Tác Động Kinh Tế",
+                    chartParagraph: "Công nghệ của chúng tôi thay đổi cơ bản phương trình tài chính cho canh tác carbon. Biểu đồ này minh họa việc giảm chi phí đáng kể mà nền tảng của chúng tôi cung cấp so với các hệ thống truyền thống.",
+                    howItWorksHeading: "Một Con Đường Đơn Giản Đến Tín Chỉ Carbon",
+                    howItWorksParagraph: "Quy trình của chúng tôi được thiết kế để đơn giản và dễ tiếp cận. Nhấp vào từng bước để tìm hiểu thêm về cách chúng tôi biến các thực hành bền vững thành doanh thu hữu hình.",
+                    step1: "1. Thu Thập Dữ Liệu Linh Hoạt",
+                    step1Text: "Hãy quên đi các giao diện rườm rà. Chúng tôi gặp gỡ nông dân ở nơi họ đang ở. Hệ thống của chúng tôi sử dụng các Mô hình Ngôn ngữ Lớn (LLM) tiên tiến để trích xuất dữ liệu cần thiết từ bất kỳ định dạng nào—dù là hồ sơ giấy, khảo sát, tệp Excel, ghi chú âm thanh hoặc thậm chí video. Điều này loại bỏ các rào cản kỹ thuật và sắp xếp hợp lý đường ống dữ liệu.",
+                    step2: "2. Phân Tích Tự Động",
+                    step2Text: "Bộ Giải pháp MMRV của RegenAI tiếp quản, chạy các mô phỏng phức tạp với mô hình DayCent và tạo các báo cáo cần thiết cho các cơ quan đăng ký carbon như Verra và Gold Standard. Các API mạnh mẽ, được hỗ trợ bởi LLM của chúng tôi cho phép tích hợp liền mạch và tương tác tự động.",
+                    step3: "3. Mở Khóa Doanh Thu Mới",
+                    step3Text: "Với các tín chỉ carbon đã được xác minh, nông dân có thể khai thác một luồng thu nhập mới, thưởng cho họ vì các thực hành quản lý đất bền vững của họ. Điều này tạo ra một tương lai kiên cường, có lợi nhuận cho cộng đồng của họ và đóng góp trực tiếp vào các mục tiêu khí hậu toàn cầu.",
+                    impactHeading: "Được Xác Nhận Bởi Các Tổ Chức Hàng Đầu",
+                    impactParagraph: "Công nghệ của chúng tôi không chỉ là một lời hứa; nó đã được chứng minh trong thực tế và được xác nhận thông qua các quan hệ đối tác quan trọng.",
+                    impactText: "Chúng tôi đã hợp tác với <strong class='text-[#4A5C2F]'>Trung tâm Nông nghiệp Tái sinh và Hệ thống Kiên cường (CRARS) tại Đại học Bang California, Chico</strong>, để thúc đẩy các nỗ lực định lượng carbon của họ. Sự hợp tác này chứng minh tính mạnh mẽ và độ tin cậy của nền tảng của chúng tôi trong một môi trường học thuật, thực tế, xác thực cách tiếp cận của chúng tôi và thể hiện tiềm năng áp dụng rộng rãi của nó.",
+                    advantageHeading: "Lợi Thế của RegenAI",
+                    advantageParagraph: "Trong khi các hệ thống MMRV khác tồn tại, chúng thường dựa vào các mô hình độc quyền đắt tiền hoặc nhập dữ liệu thủ công. Sự kết hợp độc đáo của chúng tôi giữa một mô hình khoa học mã nguồn mở, đáng tin cậy (DayCent) với AI tiên tiến để thu thập dữ liệu và tự động hóa làm cho chúng tôi khác biệt. Chúng tôi là nền tảng duy nhất được thiết kế từ đầu cho khả năng mở rộng thực sự và khả năng tiếp cận, tạo ra một vị trí thị trường có thể bảo vệ và một động cơ mạnh mẽ cho tác động toàn cầu.",
+                    tableHeader1: "Đặc điểm",
+                    tableHeader2: "Giải pháp RegenAI",
+                    tableHeader3: "Đối thủ cạnh tranh",
+                    tableRow1Col1: "Đo lường",
+                    tableRow1Col2: "SOC độ chính xác cao với DayCent + kiểm tra thực địa",
+                    tableRow1Col3: "Bộ dữ liệu chung, độ chính xác thấp hơn",
+                    tableRow2Col1: "Giám sát",
+                    tableRow2Col2: "Giám sát đám mây tự động theo thời gian thực",
+                    tableRow2Col3: "Kiểm tra thủ công định kỳ",
+                    tableRow3Col1: "Báo cáo",
+                    tableRow3Col2: "Báo cáo tự động tương thích với Verra trên quy mô lớn",
+                    tableRow3Col3: "Báo cáo tĩnh, thường chỉ là PDF",
+                    tableRow4Col1: "Xác minh",
+                    tableRow4Col2: "Các giao thức tích hợp, giảm chi phí & xác thực nhanh hơn",
+                    tableRow4Col3: "Các quy trình thủ công, tốn kém, dễ bị lỗi",
+                    tableRow5Col1: "Hỗ trợ Nông dân",
+                    tableRow5Col2: "Ưu đãi chấp nhận + đào tạo kỹ thuật",
+                    tableRow5Col3: "Hạn chế hoặc không có ưu đãi trực tiếp cho nông dân",
+                    demoHeading: "Demo Tiềm Năng Tái Sinh",
+                    demoParagraph: "Xem tiềm năng của nông nghiệp tái sinh tại Việt Nam. Nhấp vào bản đồ để thả một ghim và tính toán doanh thu tín chỉ ước tính.",
+                    demoResultsText: "Doanh thu tín chỉ hàng năm tiềm năng trên mỗi ha: ",
+                    contactHeading: "Tham gia Cuộc Cách Mạng Tái Sinh",
+                    contactParagraph: "Bạn là một nông hộ nhỏ, một hợp tác xã nông nghiệp, hay một tổ chức phát triển bền vững? Hay bạn là một nhà đầu tư đang tìm kiếm giải pháp có thể mở rộng để giải quyết một trong những vấn đề cấp bách nhất trên thế giới? Hãy hợp tác với chúng tôi để mở khóa sức mạnh của thị trường carbon.",
+                    contactCta: "Liên Hệ Với Chúng Tôi Để Tìm Hiểu Thêm",
+                    footerText: "© 2025 RegenAI. Tất cả các quyền được bảo lưu."
+                }
+            };
+            
             const processSteps = document.querySelectorAll('.process-step');
             const processImage = document.querySelector('#step-image'); // Updated selector
             const processText = document.querySelector('#step-text'); // Updated selector
             const stepDetails = {
                 'step-1': {
-                    text: "Forget cumbersome interfaces. We meet farmers where they are. Our system uses advanced Large Language Models (LLMs) to extract necessary data from any format—be it paper records, surveys, Excel files, audio notes, or even videos. This removes technical barriers and streamlines the data pipeline.",
-                    image: "./img/step-1.png"
+                    en: "Forget cumbersome interfaces. We meet farmers where they are. Our system uses advanced Large Language Models (LLMs) to extract necessary data from any format—be it paper records, surveys, Excel files, audio notes, or even videos. This removes technical barriers and streamlines the data pipeline.",
+                    vi: "Hãy quên đi các giao diện rườm rà. Chúng tôi gặp gỡ nông dân ở nơi họ đang ở. Hệ thống của chúng tôi sử dụng các Mô hình Ngôn ngữ Lớn (LLM) tiên tiến để trích xuất dữ liệu cần thiết từ bất kỳ định dạng nào—dù là hồ sơ giấy, khảo sát, tệp Excel, ghi chú âm thanh hoặc thậm chí video. Điều này loại bỏ các rào cản kỹ thuật và sắp xếp hợp lý đường ống dữ liệu."
                 },
                 'step-2': {
-                    text: "The RegenAI MMRV Suite takes over, running complex simulations with the DayCent model and generating the necessary reports for carbon registries like Verra and Gold Standard. Our robust, LLM-supported APIs allow for seamless integration and automatic interaction.",
-                    image: "./img/step-2.png"
+                    en: "The RegenAI MMRV Suite takes over, running complex simulations with the DayCent model and generating the necessary reports for carbon registries like Verra and Gold Standard. Our robust, LLM-supported APIs allow for seamless integration and automatic interaction.",
+                    vi: "Bộ Giải pháp MMRV của RegenAI tiếp quản, chạy các mô phỏng phức tạp với mô hình DayCent và tạo các báo cáo cần thiết cho các cơ quan đăng ký carbon như Verra và Gold Standard. Các API mạnh mẽ, được hỗ trợ bởi LLM của chúng tôi cho phép tích hợp liền mạch và tương tác tự động."
                 },
                 'step-3': {
-                    text: "With verified carbon credits, farmers can tap into a new stream of income, rewarding them for their sustainable land management practices. This creates a resilient, profitable future for their communities and contributes directly to global climate goals.",
-                    image: "./img/step-3.png"
+                    en: "With verified carbon credits, farmers can tap into a new stream of income, rewarding them for their sustainable land management practices. This creates a resilient, profitable future for their communities and contributes directly to global climate goals.",
+                    vi: "Với các tín chỉ carbon đã được xác minh, nông dân có thể khai thác một luồng thu nhập mới, thưởng cho họ vì các thực hành quản lý đất bền vững của họ. Điều này tạo ra một tương lai kiên cường, có lợi nhuận cho cộng đồng của họ và đóng góp trực tiếp vào các mục tiêu khí hậu toàn cầu."
                 }
             };
+
+            let currentLang = 'en';
 
             function updateStepDetails(stepId) {
                 processSteps.forEach(s => s.classList.remove('active'));
                 document.getElementById(stepId).classList.add('active');
-                processImage.src = stepDetails[stepId].image;
-                processText.textContent = stepDetails[stepId].text;
+                processText.textContent = stepDetails[stepId][currentLang];
             }
 
             processSteps.forEach(step => {
@@ -374,8 +508,88 @@
                     updateStepDetails(step.id);
                 });
             });
+
+            // Function to update the UI based on the selected language
+            function setLanguage(lang) {
+                currentLang = lang;
+                document.getElementById('lang-en').classList.toggle('font-bold', lang === 'en');
+                document.getElementById('lang-vi').classList.toggle('font-bold', lang === 'vi');
+                
+                // Update text content
+                document.title = translations[lang].title;
+                document.getElementById('hero-heading').textContent = translations[lang].heroHeading;
+                document.getElementById('hero-paragraph').textContent = translations[lang].heroParagraph;
+                document.getElementById('hero-cta').textContent = translations[lang].heroCta;
+                document.getElementById('problem-heading').textContent = translations[lang].problemHeading;
+                document.getElementById('problem-paragraph').textContent = translations[lang].problemParagraph;
+                document.getElementById('solution-heading').textContent = translations[lang].solutionHeading;
+                document.getElementById('solution-paragraph').textContent = translations[lang].solutionParagraph;
+                document.getElementById('solution-pillar-1-heading').textContent = translations[lang].solutionPillar1Heading;
+                document.getElementById('solution-pillar-1-paragraph').textContent = translations[lang].solutionPillar1Paragraph;
+                document.getElementById('solution-pillar-2-heading').textContent = translations[lang].solutionPillar2Heading;
+                document.getElementById('solution-pillar-2-paragraph').textContent = translations[lang].solutionPillar2Paragraph;
+                document.getElementById('solution-pillar-3-heading').textContent = translations[lang].solutionPillar3Heading;
+                document.getElementById('solution-pillar-3-paragraph').textContent = translations[lang].solutionPillar3Paragraph;
+                document.getElementById('chart-heading').textContent = translations[lang].chartHeading;
+                document.getElementById('chart-paragraph').textContent = translations[lang].chartParagraph;
+                document.getElementById('how-it-works-heading').textContent = translations[lang].howItWorksHeading;
+                document.getElementById('how-it-works-paragraph').textContent = translations[lang].howItWorksParagraph;
+                document.querySelector('[data-translate-step="step-1"]').textContent = translations[lang].step1;
+                document.querySelector('[data-translate-step="step-2"]').textContent = translations[lang].step2;
+                document.querySelector('[data-translate-step="step-3"]').textContent = translations[lang].step3;
+                document.getElementById('impact-heading').textContent = translations[lang].impactHeading;
+                document.getElementById('impact-paragraph').textContent = translations[lang].impactParagraph;
+                document.getElementById('impact-text').innerHTML = translations[lang].impactText; // Use innerHTML for strong tag
+                document.getElementById('advantage-heading').textContent = translations[lang].advantageHeading;
+                document.getElementById('advantage-paragraph').textContent = translations[lang].advantageParagraph;
+                document.getElementById('table-header-1').textContent = translations[lang].tableHeader1;
+                document.getElementById('table-header-2').textContent = translations[lang].tableHeader2;
+                document.getElementById('table-header-3').textContent = translations[lang].tableHeader3;
+                document.getElementById('table-row-1-col-1').textContent = translations[lang].tableRow1Col1;
+                document.getElementById('table-row-1-col-2').textContent = translations[lang].tableRow1Col2;
+                document.getElementById('table-row-1-col-3').textContent = translations[lang].tableRow1Col3;
+                document.getElementById('table-row-2-col-1').textContent = translations[lang].tableRow2Col1;
+                document.getElementById('table-row-2-col-2').textContent = translations[lang].tableRow2Col2;
+                document.getElementById('table-row-2-col-3').textContent = translations[lang].tableRow2Col3;
+                document.getElementById('table-row-3-col-1').textContent = translations[lang].tableRow3Col1;
+                document.getElementById('table-row-3-col-2').textContent = translations[lang].tableRow3Col2;
+                document.getElementById('table-row-3-col-3').textContent = translations[lang].tableRow3Col3;
+                document.getElementById('table-row-4-col-1').textContent = translations[lang].tableRow4Col1;
+                document.getElementById('table-row-4-col-2').textContent = translations[lang].tableRow4Col2;
+                document.getElementById('table-row-4-col-3').textContent = translations[lang].tableRow4Col3;
+                document.getElementById('table-row-5-col-1').textContent = translations[lang].tableRow5Col1;
+                document.getElementById('table-row-5-col-2').textContent = translations[lang].tableRow5Col2;
+                document.getElementById('table-row-5-col-3').textContent = translations[lang].tableRow5Col3;
+                document.getElementById('demo-heading').textContent = translations[lang].demoHeading;
+                document.getElementById('demo-paragraph').textContent = translations[lang].demoParagraph;
+                document.getElementById('demo-results-text').textContent = translations[lang].demoResultsText;
+                document.getElementById('contact-heading').textContent = translations[lang].contactHeading;
+                document.getElementById('contact-paragraph').textContent = translations[lang].contactParagraph;
+                document.getElementById('contact-cta').textContent = translations[lang].contactCta;
+                document.getElementById('footer-text').textContent = translations[lang].footerText;
+                
+                // Update nav links
+                document.querySelector('[data-translate="nav-solution"]').textContent = translations[lang].navSolution;
+                document.querySelector('[data-translate="nav-how-it-works"]').textContent = translations[lang].navHowItWorks;
+                document.querySelector('[data-translate="nav-impact"]').textContent = translations[lang].navImpact;
+                document.querySelector('[data-translate="nav-advantage"]').textContent = translations[lang].navAdvantage;
+                document.querySelector('[data-translate="nav-demo"]').textContent = translations[lang].navDemo;
+                document.querySelector('[data-translate="nav-contact"]').textContent = translations[lang].navContact;
+
+                // Re-run step details update to apply new language
+                const activeStep = document.querySelector('.process-step.active');
+                if (activeStep) {
+                    updateStepDetails(activeStep.id);
+                }
+            }
             
+            // Language switcher event listeners
+            document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+            document.getElementById('lang-vi').addEventListener('click', () => setLanguage('vi'));
+
+            // Initial setup
             updateStepDetails('step-1');
+            setLanguage('en');
 
             const navLinks = document.querySelectorAll('nav a');
             const sections = document.querySelectorAll('main section');
@@ -439,12 +653,16 @@
                 } else {
                     marker = L.marker([lat, lng]).addTo(map);
                 }
+                
+                // Get current language from the HTML element
+                const currentLang = document.getElementById('lang-en').classList.contains('font-bold') ? 'en' : 'vi';
+                const popupText = {
+                    en: `<b>Location:</b> ${lat.toFixed(3)}, ${lng.toFixed(3)}<br><b>Est. Revenue:</b> $${revenue} / ha`,
+                    vi: `<b>Vị trí:</b> ${lat.toFixed(3)}, ${lng.toFixed(3)}<br><b>Doanh thu ước tính:</b> $${revenue} / ha`
+                };
 
-                // Show popup
-                marker.bindPopup(
-                    `<b>Location:</b> ${lat.toFixed(3)}, ${lng.toFixed(3)}<br>` +
-                    `<b>Est. Revenue:</b> $${revenue} / ha`
-                ).openPopup();
+                // Show popup with translated text
+                marker.bindPopup(popupText[currentLang]).openPopup();
 
                 // Update results section
                 revenueEl.textContent = `$${revenue}`;
