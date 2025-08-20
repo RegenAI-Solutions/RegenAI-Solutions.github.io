@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegenAI: Empowering Farmers, Restoring Our Planet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for the interactive map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <!-- Favicon -->
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    
+    <!-- Chosen Palette: Earthy Harmony -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFDFB;
+            color: #383838;
+        }
+        .bg-hero-pattern {
+            /* Updated to use a relative path to the local image file */
+            background-image: url('./img/banner.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #6B8E23;
+        }
+        .cta-button {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        .process-step {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .process-step.active {
+            background-color: #6B8E23;
+            color: #FFFFFF;
+            transform: scale(1.05);
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Custom styles for SVG icons in the table for better alignment */
+        .icon-cell {
+            display: flex;
+            align-items: center;
+        }
+        .icon-cell svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+        /* Custom styles for the interactive map demo section */
+        .card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+        /* Critical: give the map a real height for display */
+        #vietnam-map { height: 420px; width: 100%; border-radius: 12px; }
+        #demo-results { display: none; text-align: center; font-weight: 700; color: #4A5C2F; margin-top: 16px; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Updated to use the local logo image and add the "RegenAI" text -->
+            <div class="flex items-center space-x-2">
+                <img src="./img/logo.png" alt="RegenAI Logo" class="h-10">
+                <h1 class="text-2xl font-bold text-[#4A5C2F]">RegenAI</h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#solution" class="nav-link text-gray-600 font-medium">Our Solution</a>
+                <a href="#how-it-works" class="nav-link text-gray-600 font-medium">How It Works</a>
+                <a href="#impact" class="nav-link text-gray-600 font-medium">Impact</a>
+                <a href="#advantage" class="nav-link text-gray-600 font-medium">Advantage</a>
+                <a href="#demo-app" class="nav-link text-gray-600 font-medium">Demo</a>
+            </nav>
+            <a href="#contact" class="cta-button bg-[#6B8E23] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#55711B]">Contact</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="h-screen flex items-center justify-center text-white bg-hero-pattern">
+            <div class="bg-black/50 absolute inset-0"></div>
+            <div class="text-center z-10 p-4">
+                <h2 class="text-4xl md:text-6xl font-bold leading-tight mb-4 fade-in">Empowering Farmers, Restoring Our Planet.</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 fade-in" style="animation-delay: 0.2s;">We're democratizing the carbon market for smallholder farmers with our revolutionary, low-cost, AI-powered platform.</p>
+                <a href="#solution" class="cta-button bg-[#6B8E23] text-white font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-[#55711B] fade-in" style="animation-delay: 0.4s;">Discover Our Solution</a>
+            </div>
+        </section>
+
+        <section id="problem" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">A System That Excludes the Majority</h3>
+                <p class="max-w-4xl mx-auto text-gray-600 text-lg">
+                    The global carbon market holds immense promise, but high costs, complex science, and burdensome paperwork create insurmountable barriers for smallholder farmers. This inefficiency not only hinders farmers but also represents a massive, untapped opportunity for scalable climate action.
+                </p>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20 bg-[#F7F6F2]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Our Solution: The RegenAI MMRV Suite</h3>
+                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">We've developed a cutting-edge MMRV platform that removes these barriers. Our system is built on three core pillars that create a powerful, scalable, and accessible solution.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center">
+                        <h4 class="text-xl font-bold mb-2">Scientifically-Credible Modeling</h4>
+                        <p class="text-gray-600">Built on the DayCent model, developed over 45 years by Colorado State University, ensuring the highest quality carbon credits that meet rigorous registry standards.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center">
+                        <h4 class="text-xl font-bold mb-2">AI-Powered Automation</h4>
+                        <p class="text-gray-600">Our AI-driven pipelines and forthcoming Machine-to-Machine Communication Protocol (MCP) automate the entire MMRV process, enabling unprecedented scale.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-md text-center md:col-span-2 lg:col-span-1">
+                        <h4 class="text-xl font-bold mb-2">Drastic Cost Reduction</h4>
+                        <p class="text-gray-600">By leveraging trained AI agents, we reduce MMRV costs by 80%, making carbon markets economically viable for smallholders for the first time.</p>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <div class="text-center mb-6">
+                         <h4 class="text-2xl font-bold">Visualizing the Economic Impact</h4>
+                         <p class="text-gray-600 max-w-2xl mx-auto">Our technology fundamentally changes the financial equation for carbon farming. This chart illustrates the dramatic cost reduction our platform provides compared to traditional systems.</p>
+                    </div>
+                    <div class="chart-container bg-white p-4 rounded-xl shadow-lg mx-auto" style="position: relative; height: 50vh; max-height: 400px; width: 100%; max-w-700px;">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">A Simple Path to Carbon Credits</h3>
+                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">Our process is designed for simplicity and accessibility. Click each step to learn more about how we turn sustainable practices into tangible revenue.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-0 mb-8">
+                    <div id="step-1" class="process-step active bg-gray-100 p-6 rounded-lg w-full md:w-1/3 text-center">
+                        <h5 class="font-bold">1. Flexible Data Collection</h5>
+                    </div>
+                    <div class="text-gray-400 text-2xl hidden md:block mx-4">→</div>
+                    <div id="step-2" class="process-step bg-gray-100 p-6 rounded-lg w-full md:w-1/3 text-center">
+                        <h5 class="font-bold">2. Automated Analysis</h5>
+                    </div>
+                    <div class="text-gray-400 text-2xl hidden md:block mx-4">→</div>
+                    <div id="step-3" class="process-step bg-gray-100 p-6 rounded-lg w-full md:w-1/3 text-center">
+                        <h5 class="font-bold">3. Unlock New Revenue</h5>
+                    </div>
+                </div>
+                <!-- The container below now uses flexbox to arrange content -->
+                <div id="process-details" class="bg-[#F7F6F2] p-8 md:p-12 rounded-xl shadow-inner max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                    <!-- This div contains the larger image -->
+                    <div class="w-full md:w-1/2 flex justify-center">
+                         <img id="step-image" src="./img/step-1.png" alt="Step 1: Data Collection" class="h-96 w-96 object-contain rounded-xl shadow-md">
+                    </div>
+                    <!-- This div contains the text details -->
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <p id="step-text" class="text-lg text-gray-700"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-20 bg-[#F7F6F2]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Validated by Leading Institutions</h3>
+                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">Our technology is not just a promise; it's proven in the field and validated through key partnerships.</p>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg p-8 md:p-12 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                    <div>
+                        <p class="text-lg text-gray-700">
+                            We've partnered with <strong class="text-[#4A5C2F]">The Center for Regenerative Agriculture and Resilient Systems (CRARS) at California State University, Chico</strong>, to power their carbon quantification efforts. This collaboration demonstrates the robustness and reliability of our platform in a real-world, academic setting, validating our approach and showcasing its potential for widespread adoption.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-12">
+                    <img src="./img/rap.png" alt="RegenAI Workflow Diagram" class="w-full max-w-4xl rounded-xl shadow-lg">
+                </div>
+            </div>
+        </section>
+        
+        <section id="advantage" class="py-20 bg-white">
+             <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">The RegenAI Advantage</h3>
+                <p class="max-w-4xl mx-auto text-gray-600 text-lg mb-8">
+                    While other MMRV systems exist, they often rely on expensive, proprietary models or manual data entry. Our unique combination of a trusted, open-source scientific model (DayCent) with cutting-edge AI for data ingestion and automation sets us apart. We are the only platform designed from the ground up for true scalability and accessibility, creating a defensible market position and a powerful engine for global impact.
+                </p>
+                <div class="flex justify-center">
+                    <table class="w-full max-w-4xl text-left border-collapse rounded-xl overflow-hidden shadow-lg">
+                        <thead class="bg-[#e6ffe6] text-gray-800">
+                            <tr>
+                                <th class="py-4 px-6 font-bold text-lg border-b border-gray-200">Feature</th>
+                                <th class="py-4 px-6 font-bold text-lg border-b border-gray-200">RegenAI Solutions</th>
+                                <th class="py-4 px-6 font-bold text-lg border-b border-gray-200">Competitors</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Measurement</td>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">High-precision SOC with DayCent + ground truthing</td>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Generic datasets, lower accuracy</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Monitoring</td>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Automated real-time cloud monitoring</td>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Periodic manual checks</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Reporting</td>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Verra-compatible automated reports at scale</td>
+                                <td class="py-4 px-6 border-b border-gray-200 text-gray-700">Static reports, often PDF only</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 border-gray-200 text-gray-700">Verification</td>
+                                <td class="py-4 px-6 border-gray-200 text-gray-700">Built-in protocols, reduced costs & faster validation</td>
+                                <td class="py-4 px-6 border-gray-200 text-gray-700">Manual, costly, error-prone processes</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-6 border-gray-200 text-gray-700">Farmer Support</td>
+                                <td class="py-4 px-6 border-gray-200 text-gray-700">Adoption incentives + technical training</td>
+                                <td class="py-4 px-6 border-gray-200 text-gray-700">Limited or no direct farmer incentives</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Demo App Section with Leaflet -->
+        <section id="demo-app" class="py-20 bg-[#F7F6F2]">
+            <div class="container mx-auto px-6">
+                <div class="header text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4">Regenerative Potential Demo</h3>
+                    <p class="max-w-3xl mx-auto text-gray-600 text-lg">See the potential of regenerative agriculture in Vietnam. Click on the map to drop a pin and calculate estimated credit revenue.</p>
+                </div>
+                <div class="card">
+                    <div id="vietnam-map"></div>
+                    <div id="demo-results">
+                        Potential annual credit revenue per hectare: <span id="revenue-value">$0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-[#4A5C2F] text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4">Join the Regenerative Revolution</h3>
+                <p class="max-w-3xl mx-auto text-lg mb-8">
+                    Are you a smallholder farmer, an agricultural cooperative, or a sustainable development organization? Or are you an investor looking to fuel a scalable solution to one of the world's most pressing problems? Partner with us to unlock the power of the carbon market.
+                </p>
+                <a href="mailto:info@regenaisolutions.com" class="cta-button bg-white text-[#4A5C2F] font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200">Contact Us to Learn More</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#F7F6F2] py-6">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 RegenAI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS (load after the HTML so the div exists) -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Existing script for the landing page
+            const costData = {
+                labels: ['Traditional MMRV Systems', 'RegenAI Platform'],
+                datasets: [{
+                    label: 'Cost per Hectare per Year ($)',
+                    data: [15, 3],
+                    backgroundColor: [
+                        'rgba(200, 200, 200, 0.6)',
+                        'rgba(107, 142, 35, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(150, 150, 150, 1)',
+                        'rgba(107, 142, 35, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            };
+
+            const costConfig = {
+                type: 'bar',
+                data: costData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'MMRV Cost Comparison',
+                            font: {
+                                size: 18
+                            },
+                            color: '#333'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Cost ($)'
+                            }
+                        }
+                    }
+                }
+            };
+
+            const costChartCtx = document.getElementById('costChart').getContext('2d');
+            new Chart(costChartCtx, costConfig);
+
+            const processSteps = document.querySelectorAll('.process-step');
+            const processImage = document.querySelector('#step-image'); // Updated selector
+            const processText = document.querySelector('#step-text'); // Updated selector
+            const stepDetails = {
+                'step-1': {
+                    text: "Forget cumbersome interfaces. We meet farmers where they are. Our system uses advanced Large Language Models (LLMs) to extract necessary data from any format—be it paper records, surveys, Excel files, audio notes, or even videos. This removes technical barriers and streamlines the data pipeline.",
+                    image: "./img/step-1.png"
+                },
+                'step-2': {
+                    text: "The RegenAI MMRV Suite takes over, running complex simulations with the DayCent model and generating the necessary reports for carbon registries like Verra and Gold Standard. Our robust, LLM-supported APIs allow for seamless integration and automatic interaction.",
+                    image: "./img/step-2.png"
+                },
+                'step-3': {
+                    text: "With verified carbon credits, farmers can tap into a new stream of income, rewarding them for their sustainable land management practices. This creates a resilient, profitable future for their communities and contributes directly to global climate goals.",
+                    image: "./img/step-3.png"
+                }
+            };
+
+            function updateStepDetails(stepId) {
+                processSteps.forEach(s => s.classList.remove('active'));
+                document.getElementById(stepId).classList.add('active');
+                processImage.src = stepDetails[stepId].image;
+                processText.textContent = stepDetails[stepId].text;
+            }
+
+            processSteps.forEach(step => {
+                step.addEventListener('click', () => {
+                    updateStepDetails(step.id);
+                });
+            });
+            
+            updateStepDetails('step-1');
+
+            const navLinks = document.querySelectorAll('nav a');
+            const sections = document.querySelectorAll('main section');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+
+        // Leaflet map logic (added from your provided code)
+        (function () {
+            // Initialize map centered on Vietnam with scroll wheel zoom enabled
+            const map = L.map('vietnam-map', { scrollWheelZoom: true }).setView([16.5, 107.5], 6);
+
+            // Add the base OpenStreetMap tiles to the map
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            let marker;
+            const resultsEl = document.getElementById('demo-results');
+            const revenueEl = document.getElementById('revenue-value');
+
+            // Simple cache keyed by rounded lat/lng
+            const revenueCache = {};
+
+            // Listen for a click event on the map
+            map.on('click', (e) => {
+                const lat = e.latlng.lat;
+                const lng = e.latlng.lng;
+
+                // Key using 3 decimal places (~100m precision)
+                const key = `${lat.toFixed(3)},${lng.toFixed(3)}`;
+
+                // Either retrieve from cache or generate new
+                let revenue;
+                if (revenueCache[key]) {
+                    revenue = revenueCache[key];
+                } else {
+                    // Placeholder revenue model ($20–$80/ha)
+                    revenue = (Math.random() * (80 - 20) + 20).toFixed(2);
+                    revenueCache[key] = revenue;
+                }
+
+                // Add/move marker
+                if (marker) {
+                    marker.setLatLng([lat, lng]);
+                } else {
+                    marker = L.marker([lat, lng]).addTo(map);
+                }
+
+                // Show popup
+                marker.bindPopup(
+                    `<b>Location:</b> ${lat.toFixed(3)}, ${lng.toFixed(3)}<br>` +
+                    `<b>Est. Revenue:</b> $${revenue} / ha`
+                ).openPopup();
+
+                // Update results section
+                revenueEl.textContent = `$${revenue}`;
+                resultsEl.style.display = 'block';
+            });
+        })();
+    </script>
+</body>
+</html>
