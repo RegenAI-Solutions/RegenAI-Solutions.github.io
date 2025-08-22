@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hợp tác Tín chỉ Carbon | RegenAI Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Harmony -->
+    <!-- Application Structure Plan: The SPA uses a thematic, top-down structure to guide potential partners (farmers/cooperatives) through the carbon credit collaboration. It starts with a high-level value proposition, explains the partnership model visually, details responsibilities and benefits, and provides an interactive financial calculator. This structure was chosen over a linear document review to make a complex legal/technical agreement digestible and engaging, focusing on the user's key questions: "What is it?", "What do I do?", and "What's in it for me?". The full legal text is available in an accordion at the end for detailed review, preventing initial user overload. -->
+    <!-- Visualization & Content Choices: 1. Partnership Model -> Goal: Organize/Explain Process -> Viz: HTML/CSS flowchart -> Interaction: Hover to highlight steps -> Justification: Visually simplifies the multi-step collaboration process. 2. Financial Model -> Goal: Inform/Compare -> Viz: Donut Chart (Chart.js) + HTML sliders/inputs -> Interaction: User adjusts revenue/cost inputs to see the dynamic calculation of their potential share -> Justification: Makes the abstract revenue-sharing concept tangible and transparent, building trust. 3. Legal Text -> Goal: Inform (Detailed) -> Viz: HTML Accordion -> Interaction: Click to expand/collapse -> Justification: Presents dense but necessary legal text in a non-overwhelming way, accessible on demand. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #FDFBF5;
+            color: #4A4A4A;
+        }
+        .bg-earth-tan { background-color: #FDFBF5; }
+        .bg-earth-green { background-color: #4A6C6F; }
+        .text-earth-green { color: #4A6C6F; }
+        .text-earth-brown { color: #6B5B5B; }
+        .border-earth-green { border-color: #4A6C6F; }
+        .accent-earth-green { accent-color: #4A6C6F; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .step-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-earth-tan">
+
+    <header class="bg-earth-green text-white p-4 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl md:text-2xl font-bold">REGENAI SOLUTIONS</h1>
+            <nav>
+                <a href="#gioi-thieu" class="px-3 py-2 hover:bg-white hover:text-earth-green rounded-md transition">Giới thiệu</a>
+                <a href="#mo-hinh" class="px-3 py-2 hover:bg-white hover:text-earth-green rounded-md transition hidden md:inline">Mô hình</a>
+                <a href="#loi-ich" class="px-3 py-2 hover:bg-white hover:text-earth-green rounded-md transition">Lợi ích</a>
+                <a href="#tai-chinh" class="px-3 py-2 hover:bg-white hover:text-earth-green rounded-md transition">Tài chính</a>
+                <a href="#lien-he" class="px-3 py-2 hover:bg-white hover:text-earth-green rounded-md transition">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+        
+        <section id="hero" class="text-center py-16 md:py-24">
+            <h2 class="text-3xl md:text-5xl font-bold text-earth-green mb-4">Hợp Tác Vì Nền Nông Nghiệp Bền Vững</h2>
+            <p class="text-lg md:text-xl text-earth-brown max-w-3xl mx-auto">
+                Chung tay cùng RegenAI Solutions áp dụng nông nghiệp tái sinh, tạo ra tín chỉ carbon, tăng thêm thu nhập và góp phần bảo vệ môi trường cho thế hệ tương lai.
+            </p>
+            <a href="#gioi-thieu" class="mt-8 inline-block bg-earth-green text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:bg-opacity-90 transition transform hover:scale-105">
+                Tìm Hiểu Ngay
+            </a>
+        </section>
+
+        <section id="gioi-thieu" class="py-12 md:py-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-2xl md:text-4xl font-bold text-earth-green mb-6">Dự Án Tín chỉ Carbon Nông Nghiệp là gì?</h3>
+                <p class="text-md md:text-lg text-earth-brown mb-8">
+                    Đây là một chương trình hợp tác giữa RegenAI Solutions và các hộ nông dân/hợp tác xã. Bằng cách áp dụng các phương pháp canh tác bền vững (gọi là Nông nghiệp Tái sinh), chúng ta có thể giúp đất hấp thụ và lưu trữ carbon từ không khí. Lượng carbon này được đo lường, xác minh và chuyển đổi thành "Tín chỉ Carbon" - một tài sản có giá trị và có thể bán trên thị trường quốc tế. Chương trình không chỉ mang lại lợi ích kinh tế mà còn cải thiện sức khỏe đất đai và bảo vệ môi trường.
+                </p>
+            </div>
+        </section>
+
+        <section id="mo-hinh" class="py-12 md:py-20 bg-white rounded-2xl shadow-lg">
+            <div class="max-w-6xl mx-auto px-4">
+                <h3 class="text-2xl md:text-4xl font-bold text-earth-green text-center mb-12">Mô Hình Hợp Tác 5 Bước Đơn Giản</h3>
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative">
+                    <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-200 hidden md:block"></div>
+                    <div class="step-card text-center p-6 bg-earth-tan rounded-xl border border-gray-200 z-10">
+                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-earth-green text-white rounded-full text-2xl font-bold">1</div>
+                        <h4 class="font-bold text-lg mb-2 text-earth-green">Ký Kết Hợp Đồng</h4>
+                        <p class="text-sm text-earth-brown">Hai bên thống nhất các điều khoản và ký kết hợp đồng hợp tác phát triển dự án.</p>
+                    </div>
+                    <div class="step-card text-center p-6 bg-earth-tan rounded-xl border border-gray-200 z-10">
+                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-earth-green text-white rounded-full text-2xl font-bold">2</div>
+                        <h4 class="font-bold text-lg mb-2 text-earth-green">Áp Dụng Canh Tác</h4>
+                        <p class="text-sm text-earth-brown">Nông dân áp dụng các phương pháp Nông nghiệp Tái sinh theo hướng dẫn kỹ thuật.</p>
+                    </div>
+                    <div class="step-card text-center p-6 bg-earth-tan rounded-xl border border-gray-200 z-10">
+                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-earth-green text-white rounded-full text-2xl font-bold">3</div>
+                        <h4 class="font-bold text-lg mb-2 text-earth-green">Giám Sát & Báo Cáo</h4>
+                        <p class="text-sm text-earth-brown">RegenAI Solutions thực hiện giám sát, đo lường, báo cáo và kiểm chứng (MMRV).</p>
+                    </div>
+                    <div class="step-card text-center p-6 bg-earth-tan rounded-xl border border-gray-200 z-10">
+                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-earth-green text-white rounded-full text-2xl font-bold">4</div>
+                        <h4 class="font-bold text-lg mb-2 text-earth-green">Tạo & Bán Tín Chỉ</h4>
+                        <p class="text-sm text-earth-brown">Lượng carbon giảm thải được chứng nhận và bán trên thị trường quốc tế.</p>
+                    </div>
+                    <div class="step-card text-center p-6 bg-earth-tan rounded-xl border border-gray-200 z-10">
+                        <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-earth-green text-white rounded-full text-2xl font-bold">5</div>
+                        <h4 class="font-bold text-lg mb-2 text-earth-green">Chia Sẻ Doanh Thu</h4>
+                        <p class="text-sm text-earth-brown">Doanh thu ròng từ việc bán tín chỉ được chia sẻ minh bạch cho các bên.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loi-ich" class="py-12 md:py-20">
+            <div class="max-w-5xl mx-auto">
+                <h3 class="text-2xl md:text-4xl font-bold text-earth-green text-center mb-12">Quyền Lợi & Trách Nhiệm Của Các Bên</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-lg shadow">
+                        <h4 class="text-xl font-bold text-earth-green mb-4">✅ Trách nhiệm của Đối tác (Nông dân/HTX)</h4>
+                        <ul class="list-disc list-inside space-y-2 text-earth-brown">
+                            <li>Áp dụng các phương pháp Nông nghiệp Tái sinh theo hướng dẫn.</li>
+                            <li>Cung cấp thông tin, dữ liệu canh tác chính xác để phục vụ giám sát.</li>
+                            <li>Hỗ trợ và tạo điều kiện cho các hoạt động kiểm tra, thẩm định tại thực địa.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow">
+                        <h4 class="text-xl font-bold text-earth-green mb-4">✅ Trách nhiệm của RegenAI Solutions</h4>
+                        <ul class="list-disc list-inside space-y-2 text-earth-brown">
+                            <li>Cung cấp hướng dẫn, đào tạo và hỗ trợ kỹ thuật miễn phí.</li>
+                            <li>Chịu trách nhiệm toàn bộ quy trình MMRV, đăng ký và kiểm chứng.</li>
+                            <li>Tìm kiếm đối tác, thực hiện tiếp thị và bán Tín chỉ Carbon.</li>
+                            <li>Đảm bảo chia sẻ doanh thu minh bạch, công bằng và đúng hạn.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tai-chinh" class="py-12 md:py-20 bg-white rounded-2xl shadow-lg">
+            <div class="max-w-6xl mx-auto px-4">
+                <h3 class="text-2xl md:text-4xl font-bold text-earth-green text-center mb-6">Minh Bạch Tài Chính</h3>
+                <p class="text-md md:text-lg text-earth-brown text-center max-w-3xl mx-auto mb-12">
+                    Chúng tôi cam kết một cơ chế chia sẻ doanh thu rõ ràng và minh bạch. Hãy sử dụng công cụ dưới đây để ước tính phần doanh thu bạn có thể nhận được từ việc bán tín chỉ carbon.
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="mb-6">
+                            <label for="grossRevenue" class="block font-medium mb-2 text-earth-brown">Tổng Doanh thu từ Tín chỉ (USD)</label>
+                            <input type="range" id="grossRevenue" min="10000" max="500000" value="100000" step="1000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-earth-green">
+                            <div class="text-center font-bold text-earth-green text-2xl mt-2" id="grossRevenueValue">$100,000</div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="projectCosts" class="block font-medium mb-2 text-earth-brown">Tổng Chi phí Dự án (Phí thẩm định, đăng ký...) (USD)</label>
+                            <input type="range" id="projectCosts" min="2000" max="100000" value="20000" step="500" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-earth-green">
+                            <div class="text-center font-bold text-earth-green text-2xl mt-2" id="projectCostsValue">$20,000</div>
+                        </div>
+                         <div class="mb-6">
+                            <label for="partnerShare" class="block font-medium mb-2 text-earth-brown">Tỷ lệ chia sẻ cho Đối tác (%)</label>
+                            <input type="range" id="partnerShare" min="50" max="80" value="65" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-earth-green">
+                            <div class="text-center font-bold text-earth-green text-2xl mt-2" id="partnerShareValue">65%</div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="chart-container">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                        <div class="mt-6 text-center p-4 bg-earth-tan rounded-lg">
+                            <p class="text-lg text-earth-brown">Phần của bạn nhận được (ước tính):</p>
+                            <p class="text-3xl font-bold text-earth-green" id="partnerRevenueValue">$52,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="phap-ly" class="py-12 md:py-20">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl md:text-4xl font-bold text-earth-green text-center mb-12">Thông Tin Chi Tiết & Pháp Lý</h3>
+                <div class="space-y-4" id="accordion-container">
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                        <button class="accordion-button w-full text-left p-4 font-semibold text-lg text-earth-green flex justify-between items-center transition">
+                            <span>Các Thực Hành Nông Nghiệp Tái Sinh (Phụ lục 1)</span>
+                            <span class="transform transition-transform duration-300 ">▼</span>
+                        </button>
+                        <div class="accordion-content px-4 pb-4 text-earth-brown">
+                            <p class="font-bold mt-2">Mục tiêu chính:</p>
+                            <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li>Tăng hàm lượng carbon hữu cơ trong đất.</li>
+                                <li>Giảm phát thải khí nhà kính ($CO_2$, $CH_4$).</li>
+                                <li>Cải thiện độ màu mỡ, cấu trúc và khả năng giữ nước của đất.</li>
+                            </ul>
+                            <p class="font-bold mt-4">Các thực hành bắt buộc:</p>
+                             <ul class="list-disc list-inside mt-2 space-y-1">
+                                <li><strong>Giảm thiểu hoặc không xới đất:</strong> Bảo tồn cấu trúc và vật chất hữu cơ trong đất.</li>
+                                <li><strong>Trồng cây che phủ:</strong> Bảo vệ đất khỏi xói mòn, cung cấp dinh dưỡng.</li>
+                                <li><strong>Sử dụng phân bón hữu cơ:</strong> Giảm phụ thuộc phân bón hóa học, cải thiện sức khỏe đất.</li>
+                                <li><strong>Quản lý nước hiệu quả:</strong> Tiết kiệm nước và giảm phát thải methane.</li>
+                                <li><strong>Quản lý phụ phẩm sau thu hoạch:</strong> Tái sử dụng thay vì đốt bỏ.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                        <button class="accordion-button w-full text-left p-4 font-semibold text-lg text-earth-green flex justify-between items-center transition">
+                            <span>Quy Trình Giám Sát, Báo Cáo & Kiểm Chứng (MMRV - Phụ lục 2)</span>
+                             <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content px-4 pb-4 text-earth-brown">
+                           <p class="mt-2">Quy trình này đảm bảo tính chính xác và minh bạch của lượng tín chỉ carbon được tạo ra.</p>
+                           <p class="font-bold mt-4">Trách nhiệm của Đối tác:</p>
+                           <ul class="list-disc list-inside mt-2 space-y-1">
+                               <li>Thu thập và lưu trữ dữ liệu canh tác (loại cây, phân bón, lịch tưới...).</li>
+                               <li>Hỗ trợ các đoàn kiểm tra, thẩm định độc lập tại thực địa.</li>
+                           </ul>
+                           <p class="font-bold mt-4">Trách nhiệm của RegenAI Solutions:</p>
+                           <ul class="list-disc list-inside mt-2 space-y-1">
+                               <li>Thiết lập và vận hành hệ thống MMRV toàn diện.</li>
+                               <li>Tổng hợp dữ liệu, lập báo cáo và làm việc với các tổ chức kiểm chứng quốc tế.</li>
+                           </ul>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-sm border border-gray-200">
+                        <button class="accordion-button w-full text-left p-4 font-semibold text-lg text-earth-green flex justify-between items-center transition">
+                            <span>Xem Toàn Văn Dự Thảo Hợp Đồng</span>
+                             <span class="transform transition-transform duration-300">▼</span>
+                        </button>
+                        <div class="accordion-content px-4 pb-4 text-earth-brown prose max-w-none">
+                           <h4 class="font-bold mt-2">HỢP ĐỒNG HỢP TÁC PHÁT TRIỂN DỰ ÁN VÀ CHIA SẺ LỢI ÍCH TỪ TÍN CHỈ CARBON</h4>
+                           <p><strong>BÊN A (CHỦ DỰ ÁN):</strong> CÔNG TY TNHH REGENAI SOLUTIONS</p>
+                           <p><strong>BÊN B (BÊN HỢP TÁC):</strong> [Thông tin đối tác]</p>
+                           <p>...</p>
+                           <p><strong>ĐIỀU 1. ĐỊNH NGHĨA VÀ GIẢI THÍCH</strong><br>1.1. "Dự án": Là tổng thể các hoạt động mà Các Bên cùng nhau thực hiện để tạo ra tín chỉ carbon...<br>1.2. "Nông nghiệp Tái sinh": Là các phương pháp canh tác bền vững...<br>1.3. "Tín chỉ Carbon": Là chứng nhận có thể giao dịch thương mại...<br>1.4. "Doanh thu Ròng": Là tổng doanh thu từ việc bán Tín chỉ Carbon sau khi trừ đi các chi phí dự án...</p>
+                           <p><strong>ĐIỀU 2. MỤC ĐÍCH VÀ PHẠM VI HỢP TÁC</strong><br>...</p>
+                           <p><strong>ĐIỀU 3. QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN</strong><br>...</p>
+                           <p><em>(Đây là bản tóm tắt. Vui lòng liên hệ để nhận bản hợp đồng đầy đủ.)</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lien-he" class="py-12 md:py-20 text-center">
+            <h3 class="text-2xl md:text-4xl font-bold text-earth-green mb-6">Sẵn Sàng Hợp Tác?</h3>
+            <p class="text-lg text-earth-brown max-w-2xl mx-auto mb-8">
+                Nếu bạn quan tâm đến dự án và muốn trở thành đối tác của RegenAI Solutions, xin vui lòng liên hệ với chúng tôi để được tư vấn chi tiết.
+            </p>
+            <div class="bg-white inline-block p-8 rounded-lg shadow-lg">
+                <p class="font-bold">Công ty TNHH REGENAI SOLUTIONS</p>
+                <p><strong>Địa chỉ:</strong> 117 Phùng Hưng, Phường Đông Ba, Thành phố Huế, Tỉnh Thừa Thiên Huế</p>
+                <p><strong>Email:</strong> <a href="mailto:info@regenaisolutions.com" class="text-earth-green hover:underline">info@regenaisolutions.com</a></p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-earth-green text-white text-center p-6">
+        <p>&copy; 2025 Công ty TNHH REGENAI SOLUTIONS. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const grossRevenueSlider = document.getElementById('grossRevenue');
+            const projectCostsSlider = document.getElementById('projectCosts');
+            const partnerShareSlider = document.getElementById('partnerShare');
+
+            const grossRevenueValue = document.getElementById('grossRevenueValue');
+            const projectCostsValue = document.getElementById('projectCostsValue');
+            const partnerShareValue = document.getElementById('partnerShareValue');
+            const partnerRevenueValue = document.getElementById('partnerRevenueValue');
+
+            const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }).format(value);
+
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            let revenueChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Phần của Đối tác', 'Phần của RegenAI Solutions', 'Chi phí Dự án'],
+                    datasets: [{
+                        data: [52000, 28000, 20000],
+                        backgroundColor: ['#4A6C6F', '#A3B18A', '#DAD7CD'],
+                        borderColor: '#FDFBF5',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#4A4A4A',
+                                font: {
+                                    family: "'Be Vietnam Pro', sans-serif",
+                                    size: 14
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += formatCurrency(context.parsed);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            function updateChart() {
+                const gross = parseInt(grossRevenueSlider.value);
+                const costs = parseInt(projectCostsSlider.value);
+                const share = parseInt(partnerShareSlider.value);
+
+                grossRevenueValue.textContent = formatCurrency(gross);
+                projectCostsValue.textContent = formatCurrency(costs);
+                partnerShareValue.textContent = `${share}%`;
+
+                const netRevenue = Math.max(0, gross - costs);
+                const partnerRevenue = netRevenue * (share / 100);
+                const regenaiRevenue = netRevenue - partnerRevenue;
+                
+                partnerRevenueValue.textContent = formatCurrency(partnerRevenue);
+                
+                revenueChart.data.datasets[0].data = [partnerRevenue, regenaiRevenue, costs];
+                revenueChart.update();
+            }
+
+            grossRevenueSlider.addEventListener('input', updateChart);
+            projectCostsSlider.addEventListener('input', updateChart);
+            partnerShareSlider.addEventListener('input', updateChart);
+            
+            updateChart();
+
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const icon = button.querySelector('span:last-child');
+
+                    button.parentElement.parentElement.querySelectorAll('.accordion-content').forEach(item => {
+                        if (item !== content) {
+                            item.style.maxHeight = null;
+                            item.previousElementSibling.querySelector('span:last-child').classList.remove('rotate-180');
+                        }
+                    });
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.classList.remove('rotate-180');
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
