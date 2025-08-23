@@ -1,2 +1,15 @@
 Gemini session: https://gemini.google.com/app/10b8c7a5170255d0
 Github page: https://docs.github.com/en/pages/quickstart
+
+Prompt Hướng Dẫn cho Chatbot
+"Sử dụng chủ đề màu sắc 'Earthy Harmony' với bảng màu sau:
+Màu nền chính: #FDFDFB
+Màu chữ chính: #383838
+Màu nhấn/màu tương tác (hover, active): #6B8E23
+Màu phụ trợ: Tùy chọn, phù hợp với bảng màu trên.
+Áp dụng phong cách tối giản, hiện đại và thân thiện với môi trường. 
+Đảm bảo phông chữ Inter được sử dụng và các hiệu ứng chuyển động (animations, transitions) nhẹ nhàng, tinh tế để tạo trải nghiệm người dùng mượt mà.
+
+Add a logo at './img/logo.png'. The text next to the logo should be RegenAI only.
+Add a favicon at: './img/favicon.ico'.
+Just add the placeholder paths. I have the photos in my working directory"

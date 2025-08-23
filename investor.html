@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegenAI Solutions | For Investors</title>
+    <!-- Favicon link -->
+    <link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Load Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for Earthy Harmony palette and enhanced styling -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFDFB;
+            color: #383838;
+        }
+        .bg-primary { background-color: #383838; }
+        .text-primary { color: #383838; }
+        .bg-accent { background-color: #6B8E23; }
+        .text-accent { color: #6B8E23; }
+        .border-accent { border-color: #6B8E23; }
+        .accent-accent { accent-color: #6B8E23; }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            line-height: 2.75rem;
+            letter-spacing: -0.05em;
+        }
+        .kpi-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -32px;
+            top: 15px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #6B8E23;
+            border: 4px solid #FDFDFB;
+        }
+        .chart-container {
+            position: relative;
+            height: 350px;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Slideshow Specific CSS */
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow-image.active {
+            opacity: 1;
+        }
+
+        .slideshow-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .slideshow-button {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #383838;
+            padding: 0.5rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .slideshow-button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .slideshow-dot {
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slideshow-dot:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .slideshow-dot.active {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Sticky navigation bar -->
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo and brand name -->
+            <div class="flex items-center space-x-2">
+                <img src="./img/logo.png" alt="RegenAI Solutions Logo" class="h-8">
+                <span class="font-extrabold text-2xl text-accent">RegenAI</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-gray-600 font-bold hover:text-accent transition-colors">Quay lại trang chủ</a>
+                <a href="partner.html" class="bg-accent text-white font-bold py-2 px-6 rounded-full shadow-lg hover:opacity-90 transition-opacity">Cho Đối tác Dự án</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative overflow-hidden h-screen px-6 bg-white flex items-center justify-center">
+            <!-- Slideshow Image Container -->
+            <div id="slideshow-container" class="absolute inset-0"></div>
+            <!-- Slideshow Overlay -->
+            <div class="slideshow-overlay"></div>
+
+            <!-- Hero Content Overlay -->
+            <div class="relative z-10 text-center text-white">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-4 fade-in">Tái định hình Tương lai <br>Nông nghiệp Carbon</h1>
+                <p class="text-xl md:text-2xl max-w-4xl mx-auto fade-in" style="animation-delay: 0.2s;">
+                    Trở thành nhà phát triển carbon lớn nhất Việt Nam trong 5 năm và dẫn đầu công nghệ dMRV khu vực trong 10 năm.
+                </p>
+                <a href="#opportunity" class="inline-block mt-8 bg-white text-accent font-bold py-4 px-12 rounded-full shadow-lg hover:bg-gray-200 transition-colors text-xl fade-in" style="animation-delay: 0.4s;">
+                    Tìm hiểu cơ hội đầu tư
+                </a>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="absolute inset-y-0 left-0 z-20 flex items-center">
+                <button id="prev-button" class="slideshow-button ml-4 md:ml-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+            <div class="absolute inset-y-0 right-0 z-20 flex items-center">
+                <button id="next-button" class="slideshow-button mr-4 md:mr-8">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Slideshow Dots -->
+            <div id="slideshow-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-2"></div>
+        </section>
+
+        <!-- The Opportunity -->
+        <section id="opportunity" class="py-20 px-6">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-16 text-primary">Cơ Hội Thị Trường</h2>
+                <div class="grid md:grid-cols-3 gap-10 text-center">
+                    <div class="kpi-card bg-white p-10 rounded-3xl shadow-lg fade-in">
+                        <div class="text-6xl font-extrabold text-accent mb-2">80-90%</div>
+                        <p class="text-lg text-gray-600">Thời gian của chuyên gia bị lãng phí cho việc xử lý dữ liệu thủ công để chứng nhận tín chỉ carbon.</p>
+                    </div>
+                    <div class="kpi-card bg-white p-10 rounded-3xl shadow-lg fade-in" style="animation-delay: 0.2s;">
+                        <div class="text-6xl font-extrabold text-accent mb-2">10M+</div>
+                        <p class="text-lg text-gray-600">Hecta đất nông nghiệp tại Việt Nam với tiềm năng cô lập carbon khổng lồ chưa được khai phá.</p>
+                    </div>
+                    <div class="kpi-card bg-white p-10 rounded-3xl shadow-lg fade-in" style="animation-delay: 0.4s;">
+                        <div class="text-6xl font-extrabold text-accent mb-2">2028</div>
+                        <p class="text-lg text-gray-600">Năm Việt Nam dự kiến vận hành sàn giao dịch tín chỉ carbon chính thức, tạo ra một thị trường sôi động.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Solution -->
+        <section class="py-20 px-6 bg-white">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-16 text-primary">Giải Pháp Đột Phá: Mô Hình Kép</h2>
+                <p class="text-center max-w-3xl mx-auto mb-16 text-gray-600">Chúng tôi giải quyết xung đột lợi ích tiềm tàng và tối đa hóa thị phần bằng chiến lược "Tách biệt về thương hiệu", vận hành dưới một công ty mẹ là RegenAI Solutions.</p>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-gray-50 p-10 rounded-3xl shadow-lg border-t-8 border-accent">
+                        <h3 class="text-3xl font-bold text-primary mb-4">Thương hiệu 1: Phát triển Dự án Carbon</h3>
+                        <p class="text-gray-600 text-lg">Tập trung phát triển các dự án nông nghiệp tái sinh, trực tiếp làm việc với nông dân và đối tác để tạo ra tín chỉ carbon chất lượng cao và bán ra thị trường quốc tế.</p>
+                    </div>
+                    <div class="bg-gray-50 p-10 rounded-3xl shadow-lg border-t-8 border-yellow-green-500" style="border-color: #9ACD32;">
+                        <h3 class="text-3xl font-bold text-primary mb-4">Thương hiệu 2: Cung cấp Dịch vụ dMRV</h3>
+                        <p class="text-gray-600 text-lg">Cung cấp nền tảng công nghệ dMRV (Đo lường, Báo cáo, Thẩm định Kỹ thuật số) tự động và chính xác cho các nhà phát triển carbon khác, hoạt động như một đơn vị độc lập và trung lập.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology -->
+        <section class="py-20 px-6">
+            <div class="container mx-auto text-center">
+                <h2 class="section-title mb-6 text-primary">Nền tảng Công nghệ DayCent-AI</h2>
+                <p class="text-xl max-w-4xl mx-auto text-gray-600">
+                    Lợi thế cạnh tranh cốt lõi của chúng tôi là nền tảng dMRV tự động hóa, tích hợp mô hình DayCent khoa học uy tín, giúp giảm chi phí, tăng tốc độ và đảm bảo tính chính xác cho việc chứng nhận tín chỉ carbon.
+                </p>
+            </div>
+        </section>
+
+        <!-- 10-Year Roadmap -->
+        <section class="py-20 px-6 bg-white">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-16 text-primary">Lộ trình Phát triển 10 năm</h2>
+                <div class="relative border-l-4 border-accent ml-6 md:ml-24">
+                    <!-- Giai đoạn 1 -->
+                    <div class="timeline-item mb-16 pl-12">
+                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 1 (Năm 1-2): Khởi động & Thích ứng</h3>
+                        <p class="text-gray-500 mb-4">Tập trung tại thị trường Việt Nam</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Công nghệ:</strong> Hoàn thiện nền tảng dMRV và mô hình DayCent-AI sau thí điểm.</li>
+                            <li><strong>Thị trường:</strong> Mở rộng dự án carbon đạt 10,000 ha, tập trung vào mô hình dự án nhóm.</li>
+                            <li><strong>Đối tác:</strong> Ký kết với các đối tác triển khai địa phương.</li>
+                        </ul>
+                    </div>
+                    <!-- Giai đoạn 2 -->
+                    <div class="timeline-item mb-16 pl-12">
+                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 2 (Năm 3-5): Tăng tốc & Định hình</h3>
+                        <p class="text-gray-500 mb-4">Dẫn đầu thị trường Việt Nam</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Công nghệ:</strong> Tự động hóa hoàn toàn quy trình dMRV bằng ML, tích hợp blockchain.</li>
+                            <li><strong>Thị trường:</strong> Đạt 200,000 ha dự án carbon. Ra mắt thương hiệu dịch vụ dMRV.</li>
+                            <li><strong>Đối tác:</strong> Xây dựng quan hệ với các quỹ đầu tư và người mua tín chỉ toàn cầu.</li>
+                        </ul>
+                    </div>
+                    <!-- Giai đoạn 3 -->
+                    <div class="timeline-item pl-12">
+                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 3 (Năm 6-10): Mở rộng & Dẫn đầu</h3>
+                        <p class="text-gray-500 mb-4">Vươn ra khu vực Đông Nam Á</p>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li><strong>Công nghệ:</strong> Tùy chỉnh nền tảng dMRV cho các thị trường mới (Lào, Campuchia, Indonesia).</li>
+                            <li><strong>Thị trường:</strong> Mở rộng dự án carbon đạt 1,000,000 ha. Trở thành nhà cung cấp dMRV hàng đầu khu vực.</li>
+                            <li><strong>Đối tác:</strong> Tham gia trực tiếp vào các sàn giao dịch carbon quốc tế.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Projections -->
+        <section class="py-20 px-6 bg-gray-100">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-16 text-primary">Dự phóng Tài chính</h2>
+                <div class="bg-white p-10 rounded-3xl shadow-xl">
+                    <!-- Carbon Development Projections -->
+                    <div class="mb-16">
+                        <h3 class="text-3xl font-bold text-primary mb-4">1. Doanh thu từ Phát triển Tín chỉ Carbon</h3>
+                        <p class="text-gray-600 mb-8">Điều chỉnh giá carbon dự kiến để xem tác động lên tổng doanh thu.</p>
+                        
+                        <!-- New Profit Sharing Info -->
+                        <div class="bg-gray-50 p-6 rounded-2xl mb-8">
+                            <h4 class="text-lg font-semibold mb-2">Tỷ lệ chia sẻ lợi nhuận dự kiến:</h4>
+                            <p class="text-gray-600">
+                                <span class="font-bold text-accent">RegenAI: 25%</span> | 
+                                <span class="font-bold text-blue-500">Đối tác triển khai: 15%</span> | 
+                                <span class="font-bold text-yellow-500">Nông dân: 60%</span>
+                            </p>
+                        </div>
+
+                        <div class="mb-8">
+                            <label for="carbonPriceSlider" class="block text-xl font-medium mb-4">Giá Tín chỉ Carbon (USD)</label>
+                            <input type="range" id="carbonPriceSlider" min="5" max="50" value="15" step="1" class="w-full h-2 rounded-full bg-gray-200 accent-accent">
+                            <div class="text-center font-bold text-accent text-3xl mt-4" id="carbonPriceValue">$15</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="carbonDevChart"></canvas>
+                        </div>
+                    </div>
+                    <!-- dMRV Services Projections -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-primary mb-6">2. Doanh thu từ Dịch vụ dMRV</h3>
+                        <p class="text-gray-600 mb-8">Giá dịch vụ dMRV dự kiến là <span class="font-bold">$4/hecta/năm</span>.</p>
+                        <div class="chart-container">
+                            <canvas id="dmrvChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 px-6 bg-primary text-white text-center rounded-t-3xl">
+            <div class="container mx-auto">
+                <h2 class="text-5xl font-extrabold mb-6">Sẵn sàng Đồng hành cùng chúng tôi?</h2>
+                <p class="text-xl max-w-3xl mx-auto mb-10">
+                    Chúng tôi đang tìm kiếm các nhà đầu tư chiến lược để cùng hiện thực hóa tầm nhìn này. Hãy liên hệ để nhận báo cáo chi tiết và thảo luận về cơ hội hợp tác.
+                </p>
+                <a href="mailto:info@regenaisolutions.com" class="bg-white text-accent font-bold py-4 px-12 rounded-full shadow-lg hover:bg-gray-200 transition-colors text-xl">Liên hệ</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-primary/90 text-white text-center p-6">
+        <p>&copy; 2025 RegenAI Solutions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get references to the slider and value display elements
+            const carbonPriceSlider = document.getElementById('carbonPriceSlider');
+            const carbonPriceValue = document.getElementById('carbonPriceValue');
+
+            // Initial carbon price and credit data for projections
+            const initialCarbonPrice = 15;
+            const carbonCredits = { year5: 600000, year10: 3000000 };
+
+            let carbonDevChart, dmrvChart;
+
+            /**
+             * Formats a number as a compact currency string.
+             * @param {number} value The number to format.
+             * @returns {string} The formatted currency string.
+             */
+            const formatCurrency = (value) => new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'USD',
+                notation: 'compact',
+                compactDisplay: 'short'
+            }).format(value);
+
+            /**
+             * Creates and initializes the financial charts.
+             * @param {number} price The initial carbon price to use for calculations.
+             */
+            function createCharts(price) {
+                // Destroy existing charts if they exist to prevent memory leaks and display issues
+                if (carbonDevChart) carbonDevChart.destroy();
+                if (dmrvChart) dmrvChart.destroy();
+
+                // Chart 1: Carbon Development Revenue (Bar Chart)
+                const carbonDevCtx = document.getElementById('carbonDevChart').getContext('2d');
+                carbonDevChart = new Chart(carbonDevCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Năm 5', 'Năm 10'],
+                        datasets: [{
+                            label: 'Tổng Doanh thu (mỗi năm)',
+                            data: [carbonCredits.year5 * price, carbonCredits.year10 * price],
+                            backgroundColor: '#6B8E23',
+                            borderRadius: 8,
+                        }, {
+                            label: 'Lợi nhuận RegenAI (mỗi năm)',
+                            data: [(carbonCredits.year5 * price * 0.8) * 0.25, (carbonCredits.year10 * price * 0.8) * 0.25],
+                            backgroundColor: '#82E0AA',
+                            borderRadius: 8,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: (value) => formatCurrency(value)
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => `${context.dataset.label}: ${formatCurrency(context.raw)}`
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Chart 2: dMRV Services Revenue (Bar Chart)
+                const dmrvCtx = document.getElementById('dmrvChart').getContext('2d');
+                dmrvChart = new Chart(dmrvCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Năm 5', 'Năm 10'],
+                        datasets: [{
+                            label: 'Doanh thu dMRV (mỗi năm)',
+                            data: [1200000, 20000000],
+                            backgroundColor: '#3498DB',
+                            borderRadius: 8,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: (value) => formatCurrency(value)
+                                }
+                            }
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: (context) => `${context.dataset.label}: ${formatCurrency(context.raw)}`
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            /**
+             * Updates the carbon development chart based on the new slider price.
+             * @param {number} price The new carbon price from the slider.
+             */
+            function updateCarbonDevChart(price) {
+                carbonDevChart.data.datasets[0].data = [carbonCredits.year5 * price, carbonCredits.year10 * price];
+                carbonDevChart.data.datasets[1].data = [(carbonCredits.year5 * price * 0.8) * 0.25, (carbonCredits.year10 * price * 0.8) * 0.25];
+                carbonDevChart.update();
+            }
+
+            // Event listener for the slider input
+            carbonPriceSlider.addEventListener('input', (e) => {
+                const price = e.target.value;
+                carbonPriceValue.textContent = `$${price}`;
+                updateCarbonDevChart(price);
+            });
+
+            // Initial chart creation on page load
+            createCharts(initialCarbonPrice);
+
+            // Slideshow Logic
+            const heroSection = document.getElementById("hero");
+            const slideshowContainer = document.getElementById("slideshow-container");
+            const slideshowDotsContainer = document.getElementById("slideshow-dots");
+            const prevButton = document.getElementById("prev-button");
+            const nextButton = document.getElementById("next-button");
+
+            // I'll create 5 banner images. The number "n" is dynamic, so I'll generate them.
+            const totalBanners = 5;
+            let currentSlide = 0;
+            const banners = [];
+            const dots = [];
+
+            function createBanners() {
+                for (let i = 0; i < totalBanners; i++) {
+                    const img = document.createElement("img");
+                    img.src = `./img/banner${i}.png`;
+                    img.alt = `Banner image ${i + 1}`;
+                    img.classList.add("slideshow-image");
+                    slideshowContainer.appendChild(img);
+                    banners.push(img);
+
+                    const dot = document.createElement("span");
+                    dot.classList.add("slideshow-dot");
+                    dot.addEventListener("click", () => showSlide(i));
+                    slideshowDotsContainer.appendChild(dot);
+                    dots.push(dot);
+                }
+                showSlide(currentSlide);
+            }
+
+            function showSlide(index) {
+                // Ensure index is within bounds
+                if (index >= banners.length) {
+                    index = 0;
+                }
+                if (index < 0) {
+                    index = banners.length - 1;
+                }
+                currentSlide = index;
+
+                // Update images
+                banners.forEach((img, i) => {
+                    if (i === currentSlide) {
+                        img.classList.add("active");
+                    } else {
+                        img.classList.remove("active");
+                    }
+                });
+
+                // Update dots
+                dots.forEach((dot, i) => {
+                    if (i === currentSlide) {
+                        dot.classList.add("active");
+                    } else {
+                        dot.classList.remove("active");
+                    }
+                });
+            }
+
+            function nextSlide() {
+                showSlide(currentSlide + 1);
+            }
+
+            function prevSlide() {
+                showSlide(currentSlide - 1);
+            }
+
+            // Event listeners for slideshow buttons
+            nextButton.addEventListener("click", nextSlide);
+            prevButton.addEventListener("click", prevSlide);
+
+            // Auto-advance the slideshow every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Initial creation of banners
+            createBanners();
+        });
+    </script>
+</body>
+</html>
