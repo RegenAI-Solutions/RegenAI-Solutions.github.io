@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE ahtml>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -111,10 +111,6 @@
             transition: background-color 0.3s ease;
         }
 
-        .slideshow-dot:hover {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
         .slideshow-dot.active {
             background-color: #fff;
         }
@@ -149,7 +145,7 @@
             <div class="relative z-10 text-center text-white">
                 <h1 class="text-5xl md:text-7xl font-extrabold mb-4 fade-in">Tái định hình Tương lai <br>Nông nghiệp Carbon</h1>
                 <p class="text-xl md:text-2xl max-w-4xl mx-auto fade-in" style="animation-delay: 0.2s;">
-                    Trở thành nhà phát triển carbon lớn nhất Việt Nam trong 5 năm và dẫn đầu công nghệ dMRV khu vực trong 10 năm.
+                    Trở thành nhà phát triển carbon lớn nhất Việt Nam trong 4 năm và dẫn đầu công nghệ dMRV khu vực trong 6 năm.
                 </p>
                 <a href="#opportunity" class="inline-block mt-8 bg-white text-accent font-bold py-4 px-12 rounded-full shadow-lg hover:bg-gray-200 transition-colors text-xl fade-in" style="animation-delay: 0.4s;">
                     Tìm hiểu cơ hội đầu tư
@@ -181,9 +177,12 @@
             <div class="container mx-auto">
                 <h2 class="section-title text-center mb-16 text-primary">Cơ Hội Thị Trường</h2>
                 <div class="grid md:grid-cols-3 gap-10 text-center">
+                    <!-- Updated KPI Card -->
                     <div class="kpi-card bg-white p-10 rounded-3xl shadow-lg fade-in">
-                        <div class="text-6xl font-extrabold text-accent mb-2">80-90%</div>
-                        <p class="text-lg text-gray-600">Thời gian của chuyên gia bị lãng phí cho việc xử lý dữ liệu thủ công để chứng nhận tín chỉ carbon.</p>
+                        <div class="text-6xl font-extrabold text-accent mb-2">Giảm 80%</div>
+                        <p class="text-lg text-gray-600">
+                           Chi phí dMRV từ <span class="font-bold">$20-$30/ha</span> xuống <span class="font-bold">$4/ha</span>, phá vỡ rào cản gia nhập thị trường.
+                        </p>
                     </div>
                     <div class="kpi-card bg-white p-10 rounded-3xl shadow-lg fade-in" style="animation-delay: 0.2s;">
                         <div class="text-6xl font-extrabold text-accent mb-2">10M+</div>
@@ -225,10 +224,10 @@
             </div>
         </section>
 
-        <!-- 10-Year Roadmap -->
+        <!-- 6-Year Roadmap -->
         <section class="py-20 px-6 bg-white">
             <div class="container mx-auto">
-                <h2 class="section-title text-center mb-16 text-primary">Lộ trình Phát triển 10 năm</h2>
+                <h2 class="section-title text-center mb-16 text-primary">Lộ trình Phát triển 6 năm</h2>
                 <div class="relative border-l-4 border-accent ml-6 md:ml-24">
                     <!-- Giai đoạn 1 -->
                     <div class="timeline-item mb-16 pl-12">
@@ -242,7 +241,7 @@
                     </div>
                     <!-- Giai đoạn 2 -->
                     <div class="timeline-item mb-16 pl-12">
-                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 2 (Năm 3-5): Tăng tốc & Định hình</h3>
+                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 2 (Năm 3-4): Tăng tốc & Định hình</h3>
                         <p class="text-gray-500 mb-4">Dẫn đầu thị trường Việt Nam</p>
                         <ul class="list-disc list-inside text-gray-600 space-y-2">
                             <li><strong>Công nghệ:</strong> Tự động hóa hoàn toàn quy trình dMRV bằng ML, tích hợp blockchain.</li>
@@ -252,7 +251,7 @@
                     </div>
                     <!-- Giai đoạn 3 -->
                     <div class="timeline-item pl-12">
-                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 3 (Năm 6-10): Mở rộng & Dẫn đầu</h3>
+                        <h3 class="text-2xl font-bold text-primary">Giai đoạn 3 (Năm 4-6): Mở rộng & Dẫn đầu</h3>
                         <p class="text-gray-500 mb-4">Vươn ra khu vực Đông Nam Á</p>
                         <ul class="list-disc list-inside text-gray-600 space-y-2">
                             <li><strong>Công nghệ:</strong> Tùy chỉnh nền tảng dMRV cho các thị trường mới (Lào, Campuchia, Indonesia).</li>
@@ -286,8 +285,10 @@
 
                         <div class="mb-8">
                             <label for="carbonPriceSlider" class="block text-xl font-medium mb-4">Giá Tín chỉ Carbon (USD)</label>
-                            <input type="range" id="carbonPriceSlider" min="5" max="50" value="15" step="1" class="w-full h-2 rounded-full bg-gray-200 accent-accent">
-                            <div class="text-center font-bold text-accent text-3xl mt-4" id="carbonPriceValue">$15</div>
+                            <!-- Updated slider value -->
+                            <input type="range" id="carbonPriceSlider" min="5" max="150" value="20" step="1" class="w-full h-2 rounded-full bg-gray-200 accent-accent">
+                            <!-- Updated initial value display -->
+                            <div class="text-center font-bold text-accent text-3xl mt-4" id="carbonPriceValue">$20</div>
                         </div>
                         <div class="chart-container">
                             <canvas id="carbonDevChart"></canvas>
@@ -312,7 +313,8 @@
                 <p class="text-xl max-w-3xl mx-auto mb-10">
                     Chúng tôi đang tìm kiếm các nhà đầu tư chiến lược để cùng hiện thực hóa tầm nhìn này. Hãy liên hệ để nhận báo cáo chi tiết và thảo luận về cơ hội hợp tác.
                 </p>
-                <a href="mailto:info@regenaisolutions.com" class="bg-white text-accent font-bold py-4 px-12 rounded-full shadow-lg hover:bg-gray-200 transition-colors text-xl">Liên hệ</a>
+                <!-- Updated contact email -->
+                <a href="mailto:info@regenlab.tech" class="bg-white text-accent font-bold py-4 px-12 rounded-full shadow-lg hover:bg-gray-200 transition-colors text-xl">Liên hệ</a>
             </div>
         </section>
     </main>
@@ -328,8 +330,11 @@
             const carbonPriceValue = document.getElementById('carbonPriceValue');
 
             // Initial carbon price and credit data for projections
-            const initialCarbonPrice = 15;
-            const carbonCredits = { year5: 600000, year10: 3000000 };
+            const initialCarbonPrice = 20; // Updated initial price
+            // Updated carbon credit data based on the new 6-year roadmap
+            // 200,000 ha @ 3 credits/ha = 600,000 credits
+            // 1,000,000 ha @ 3 credits/ha = 3,000,000 credits
+            const carbonCredits = { year4: 600000, year6: 3000000 };
 
             let carbonDevChart, dmrvChart;
 
@@ -359,15 +364,16 @@
                 carbonDevChart = new Chart(carbonDevCtx, {
                     type: 'bar',
                     data: {
-                        labels: ['Năm 5', 'Năm 10'],
+                        // Updated labels for the new roadmap
+                        labels: ['Năm 4', 'Năm 6'],
                         datasets: [{
                             label: 'Tổng Doanh thu (mỗi năm)',
-                            data: [carbonCredits.year5 * price, carbonCredits.year10 * price],
+                            data: [carbonCredits.year4 * price, carbonCredits.year6 * price],
                             backgroundColor: '#6B8E23',
                             borderRadius: 8,
                         }, {
                             label: 'Lợi nhuận RegenAI (mỗi năm)',
-                            data: [(carbonCredits.year5 * price * 0.8) * 0.25, (carbonCredits.year10 * price * 0.8) * 0.25],
+                            data: [(carbonCredits.year4 * price * 0.8) * 0.25, (carbonCredits.year6 * price * 0.8) * 0.25],
                             backgroundColor: '#82E0AA',
                             borderRadius: 8,
                         }]
@@ -393,15 +399,17 @@
                     }
                 });
 
-                // Chart 2: dMRV Services Revenue (Bar Chart)
+                // Chart 2: dMRV Services Projections (Bar Chart)
                 const dmrvCtx = document.getElementById('dmrvChart').getContext('2d');
                 dmrvChart = new Chart(dmrvCtx, {
                     type: 'bar',
                     data: {
-                        labels: ['Năm 5', 'Năm 10'],
+                        // Updated labels and data for the new roadmap
+                        labels: ['Năm 4', 'Năm 6'],
+                        data: [200000 * 4, 1000000 * 4],
                         datasets: [{
                             label: 'Doanh thu dMRV (mỗi năm)',
-                            data: [1200000, 20000000],
+                            data: [200000 * 4, 1000000 * 4],
                             backgroundColor: '#3498DB',
                             borderRadius: 8,
                         }]
@@ -433,8 +441,8 @@
              * @param {number} price The new carbon price from the slider.
              */
             function updateCarbonDevChart(price) {
-                carbonDevChart.data.datasets[0].data = [carbonCredits.year5 * price, carbonCredits.year10 * price];
-                carbonDevChart.data.datasets[1].data = [(carbonCredits.year5 * price * 0.8) * 0.25, (carbonCredits.year10 * price * 0.8) * 0.25];
+                carbonDevChart.data.datasets[0].data = [carbonCredits.year4 * price, carbonCredits.year6 * price];
+                carbonDevChart.data.datasets[1].data = [(carbonCredits.year4 * price * 0.8) * 0.25, (carbonCredits.year6 * price * 0.8) * 0.25];
                 carbonDevChart.update();
             }
 

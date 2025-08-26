@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegenAI Solutions | Investor Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Earthy Harmony -->
+    <!-- Application Structure Plan: A top-down narrative SPA designed for investors. The structure flows from the high-level vision (Hero, Opportunity) to the specific solution (Dual Model, Tech Stack, SOPs), competitive advantages, and finally, the tangible outcomes (Interactive Financials). This logical progression builds a compelling investment case by first establishing the problem and then systematically detailing our superior solution and its financial potential. -->
+    <!-- Visualization & Content Choices: 1. Financial Projections -> Goal: Inform/Compare -> Viz: Bar Charts (Chart.js) -> Interaction: A slider allows investors to perform scenario analysis by adjusting the carbon price, which dynamically updates the Carbon Development Revenue chart. This transforms static data into an engaging tool. 2. Competitive Landscape -> Goal: Compare -> Viz: Styled HTML Table -> Justification: A table provides a clear, direct, and easily scannable comparison of key features against competitors. 3. Technology Stack -> Goal: Inform/Organize -> Viz: Structured HTML sections with icons -> Justification: Breaks down complex technology into digestible components, each with a clear purpose and benefit. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFDFB;
+            color: #383838;
+        }
+        .bg-accent { background-color: #6B8E23; }
+        .text-accent { color: #6B8E23; }
+        .border-accent { border-color: #6B8E23; }
+        .accent-accent { accent-color: #6B8E23; }
+        .section-title {
+            font-weight: 800;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-main text-main">
+
+    <nav class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="font-extrabold text-2xl text-accent">RegenAI Solutions</div>
+            <a href="#contact" class="bg-accent text-white font-bold py-2 px-6 rounded-lg hover:opacity-90 transition-opacity">Contact Us</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="text-center py-20 px-6 bg-white">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-accent mb-4 fade-in">Redefining the Future of Agricultural Carbon</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 fade-in" style="animation-delay: 0.2s;">
+                Our mission is to become Vietnam's largest carbon developer within 5 years and the leading regional dMRV technology provider within 10 years.
+            </p>
+        </section>
+
+        <!-- The DayCent Model -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-12 text-accent">The Foundation: DayCent Model Credibility</h2>
+                <div class="max-w-4xl mx-auto text-gray-600 text-lg">
+                    <p class="mb-4">The DayCent model, developed over 40 years by Colorado State University (CSU), is a globally recognized tool for simulating ecosystem processes, including carbon cycling and GHG emissions. Its credibility is validated by its extensive use in peer-reviewed scientific literature, making it a preferred choice for robust environmental research.</p>
+                    <p>To secure our technological foundation, RegenAI Solutions is finalizing a **non-exclusive license agreement with CSU** for the worldwide usage of the DayCent model, granting us unrestricted access to its core code and ongoing developments for our commercial applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The DayCent-AI Ecosystem -->
+        <section class="py-16 px-6 bg-gray-50">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-12 text-accent">The DayCent-AI Ecosystem</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- DayCent-Client -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-2">DayCent-Client</h3>
+                        <p class="text-gray-600">A core Python library enabling MMRV providers to programmatically automate entire project workflows, from preparing inputs to calculating ERR, PMU, and model bias, crucial for managing large-scale projects with minimal intervention.</p>
+                    </div>
+                    <!-- DayCentAPI -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-2">DayCentAPI</h3>
+                        <p class="text-gray-600">A serverless AWS Lambda architecture that enables massive parallelization of DayCent runs, capable of processing millions of simulations concurrently. It's ideal for managing grouped projects and ensures a cost-effective, scalable solution.</p>
+                    </div>
+                    <!-- Voiceara -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Voiceara (Forthcoming)</h3>
+                        <p class="text-gray-600">A mobile app using LLMs to ingest farm data from any format—paper records, voice notes, or Excel files. It automates QA/QC and converts unstructured data into model-ready configurations, removing technical barriers for farmers.</p>
+                    </div>
+                    <!-- DayCent-PEST -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Model Calibration (DayCent-PEST)</h3>
+                        <p class="text-gray-600">Our direct integration of PEST and PEST++ automates parameter estimation and uncertainty analysis, enabling us to generate higher-quality, scientifically robust carbon credits that command a premium price.</p>
+                    </div>
+                    <!-- Spatial Sampling -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-2">Proprietary Algorithms</h3>
+                        <p class="text-gray-600">Custom algorithms for spatially balanced sampling and multi-pass stratification ensure our field data is efficient and representative, minimizing model uncertainty and maximizing credit issuance for farmers and investors.</p>
+                    </div>
+                    <!-- DayCentGUI -->
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="text-xl font-bold mb-2">DayCentGUI</h3>
+                        <p class="text-gray-600">A professional graphical interface that consolidates all project files into a single workbook. This streamlines QA/QC and provides a single, auditable source of truth for technical experts and verifiers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SOPs -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto max-w-4xl text-center">
+                <h2 class="section-title mb-4 text-accent">A Foundation of Data Quality</h2>
+                <p class="text-lg text-gray-600">To ensure our data and reporting meet the highest standards, we have developed a comprehensive set of **Standard Operating Procedures (SOPs)**. These SOPs govern our entire MMRV framework, providing a clear, traceable, and registry-compliant methodology for soil data collection, scientific data extraction, and quantification workflows.</p>
+            </div>
+        </section>
+
+        <!-- Competitive Landscape -->
+        <section class="py-16 px-6 bg-gray-50">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-12 text-accent">Competitive Landscape</h2>
+                <div class="overflow-x-auto bg-white rounded-xl shadow-lg">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="p-4 font-bold">Feature</th>
+                                <th class="p-4 font-bold text-accent">RegenAI DayCent-AI Suite</th>
+                                <th class="p-4 font-bold">Regrow (DNDC)</th>
+                                <th class="p-4 font-bold">Indigo Ag (DayCent-CR)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-t">
+                                <td class="p-4 font-semibold">Model Calibration</td>
+                                <td class="p-4 text-accent">Automated & Integrated (PEST++)</td>
+                                <td class="p-4">Lacking streamlined pipeline; requires scripting</td>
+                                <td class="p-4">Bayesian pipeline; requires specialized cluster expertise</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="p-4 font-semibold">Scalability</td>
+                                <td class="p-4 text-accent">Serverless Cloud (DayCentAPI)</td>
+                                <td class="p-4">VM-based on GCP; less cost-efficient at scale</td>
+                                <td class="p-4">HPC Clusters (Slurm); high setup & maintenance cost</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="p-4 font-semibold">User Accessibility</td>
+                                <td class="p-4 text-accent">Multi-faceted: Programmatic, Visual GUI, & LLM Mobile App</td>
+                                <td class="p-4">High technical barrier; scripting-heavy</td>
+                                <td class="p-4">High technical barrier; specialized expertise required</td>
+                            </tr>
+                            <tr class="border-t">
+                                <td class="p-4 font-semibold">Data Ingestion</td>
+                                <td class="p-4 text-accent">Automated & LLM-powered (from diverse formats)</td>
+                                <td class="p-4">Traditional, manual or scripting-based</td>
+                                <td class="p-4">Primarily manual/internal data pipelines</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Projections -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto">
+                <h2 class="section-title text-center mb-12 text-accent">Interactive Financial Projections</h2>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <div class="mb-12">
+                        <h3 class="text-2xl font-bold mb-2">1. Revenue from Carbon Credit Development</h3>
+                        <p class="text-gray-600 mb-6">Adjust the projected carbon price to analyze its impact on total revenue and RegenAI's profit share.</p>
+                        <div class="mb-6">
+                            <label for="carbonPriceSlider" class="block font-medium mb-2">Carbon Credit Price (USD)</label>
+                            <input type="range" id="carbonPriceSlider" min="5" max="50" value="15" step="1" class="w-full accent-accent">
+                            <div class="text-center font-bold text-accent text-2xl mt-2" id="carbonPriceValue">$15</div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="carbonDevChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">2. Revenue from dMRV Services</h3>
+                        <div class="chart-container">
+                            <canvas id="dmrvChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 px-6 bg-accent text-white">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl font-extrabold mb-4">Ready to Partner with Us?</h2>
+                <p class="text-lg max-w-2xl mx-auto mb-8">
+                    We are seeking strategic investors to help us realize this vision. Contact us to receive a detailed report and discuss partnership opportunities.
+                </p>
+                <p class="text-xl font-bold">info@regenaisolutions.com</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-6">
+        <p>&copy; 2025 RegenAI Solutions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carbonPriceSlider = document.getElementById('carbonPriceSlider');
+            const carbonPriceValue = document.getElementById('carbonPriceValue');
+
+            const initialCarbonPrice = 15;
+            const carbonCredits = { year5: 600000, year10: 3000000 };
+
+            let carbonDevChart, dmrvChart;
+
+            const formatCurrency = (value) => new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                notation: 'compact',
+                compactDisplay: 'short'
+            }).format(value);
+
+            function createCharts(price) {
+                if (carbonDevChart) carbonDevChart.destroy();
+                if (dmrvChart) dmrvChart.destroy();
+
+                const carbonDevCtx = document.getElementById('carbonDevChart').getContext('2d');
+                carbonDevChart = new Chart(carbonDevCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Year 5 Projection', 'Year 10 Projection'],
+                        datasets: [{
+                            label: 'Total Revenue',
+                            data: [carbonCredits.year5 * price, carbonCredits.year10 * price],
+                            backgroundColor: '#6B8E23',
+                            borderRadius: 5,
+                        }, {
+                            label: "RegenAI's Profit",
+                            data: [(carbonCredits.year5 * price * 0.8) * 0.25, (carbonCredits.year10 * price * 0.8) * 0.25],
+                            backgroundColor: '#A3B18A',
+                            borderRadius: 5,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: { y: { beginAtZero: true, ticks: { callback: (value) => formatCurrency(value) } } },
+                        plugins: { tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${formatCurrency(context.raw)}` } } }
+                    }
+                });
+
+                const dmrvCtx = document.getElementById('dmrvChart').getContext('2d');
+                dmrvChart = new Chart(dmrvCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Year 5 Projection', 'Year 10 Projection'],
+                        datasets: [{
+                            label: 'dMRV Service Revenue',
+                            data: [1200000, 20000000],
+                            backgroundColor: '#6B8E23',
+                            borderRadius: 5,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: { y: { beginAtZero: true, ticks: { callback: (value) => formatCurrency(value) } } },
+                        plugins: { tooltip: { callbacks: { label: (context) => `${context.dataset.label}: ${formatCurrency(context.raw)}` } } }
+                    }
+                });
+            }
+
+            function updateCarbonDevChart(price) {
+                carbonDevChart.data.datasets[0].data = [carbonCredits.year5 * price, carbonCredits.year10 * price];
+                carbonDevChart.data.datasets[1].data = [(carbonCredits.year5 * price * 0.8) * 0.25, (carbonCredits.year10 * price * 0.8) * 0.25];
+                carbonDevChart.update();
+            }
+
+            carbonPriceSlider.addEventListener('input', (e) => {
+                const price = e.target.value;
+                carbonPriceValue.textContent = `$${price}`;
+                updateCarbonDevChart(price);
+            });
+
+            createCharts(initialCarbonPrice);
+        });
+    </script>
+
+</body>
+</html>

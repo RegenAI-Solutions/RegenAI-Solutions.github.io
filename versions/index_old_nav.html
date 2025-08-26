@@ -146,15 +146,16 @@
                 <h1 class="text-2xl font-bold text-[#4A5C2F]">RegenAI</h1>
             </div>
             <nav class="hidden md:flex space-x-8">
-                <!-- Updated Navigation Menu -->
-                <a href="#hero" class="nav-link text-gray-600 font-bold active" data-translate="nav-about">About</a>
-                <a href="partner.html" class="nav-link text-gray-600 font-medium" data-translate="nav-partners">For Partners</a>
-                <a href="investor.html" class="nav-link text-gray-600 font-medium" data-translate="nav-investors">For Investors</a>
+                <a href="#solution" class="nav-link text-gray-600 font-medium" data-translate="nav-solution">Our Solution</a>
+                <a href="#how-it-works" class="nav-link text-gray-600 font-medium" data-translate="nav-how-it-works">How It Works</a>
+                <a href="#impact" class="nav-link text-gray-600 font-medium" data-translate="nav-impact">Impact</a>
+                <a href="#advantage" class="nav-link text-gray-600 font-medium" data-translate="nav-advantage">Advantage</a>
+                <a href="#demo-app" class="nav-link text-gray-600 font-medium" data-translate="nav-demo">Demo</a>
             </nav>
             <div class="flex items-center space-x-4">
                 <a href="#contact" class="cta-button bg-[#6B8E23] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#55711B]" data-translate="nav-contact">Contact</a>
                 <div class="flex space-x-2">
-                    <button id="lang-en" class="text-gray-600 font-bold hover:text-[#6B8E23] font-bold">EN</button>
+                    <button id="lang-en" class="text-gray-600 font-medium hover:text-[#6B8E23] font-bold">EN</button>
                     <button id="lang-vi" class="text-gray-600 font-medium hover:text-[#6B8E23]">VI</button>
                 </div>
             </div>
@@ -340,8 +341,7 @@
                 <p id="contact-paragraph" class="max-w-3xl mx-auto text-lg mb-8">
                     Are you a smallholder farmer, an agricultural cooperative, or a sustainable development organization? Or are you an investor looking to fuel a scalable solution to one of the world's most pressing problems? Partner with us to unlock the power of the carbon market.
                 </p>
-                <!-- Updated Email Address -->
-                <a href="mailto:info@regenlab.tech" id="contact-cta" class="cta-button bg-white text-[#4A5C2F] font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200">Contact Us to Learn More</a>
+                <a href="mailto:info@regenaisolutions.com" id="contact-cta" class="cta-button bg-white text-[#4A5C2F] font-bold py-3 px-8 rounded-full text-lg shadow-xl hover:bg-gray-200">Contact Us to Learn More</a>
             </div>
         </section>
     </main>
@@ -431,9 +431,6 @@
                     navAdvantage: "Advantage",
                     navDemo: "Demo",
                     navContact: "Contact",
-                    navAbout: "About", // Added new translation keys
-                    navPartners: "For Partners",
-                    navInvestors: "For Investors",
                     heroHeading: "Empowering Farmers, Restoring Our Planet.",
                     heroParagraph: "We're democratizing the carbon market for smallholder farmers with our revolutionary, low-cost, AI-powered platform.",
                     heroCta: "Discover Our Solution",
@@ -496,9 +493,6 @@
                     navAdvantage: "Lợi Thế",
                     navDemo: "Demo",
                     navContact: "Liên Hệ",
-                    navAbout: "Giới thiệu", // Added new translation keys
-                    navPartners: "Đối tác",
-                    navInvestors: "Nhà đầu tư",
                     heroHeading: "Trao Quyền Cho Nông Dân, Phục Hồi Hành Tinh.",
                     heroParagraph: "Chúng tôi dân chủ hóa thị trường carbon cho các nông hộ nhỏ với nền tảng đột phá, chi phí thấp, được hỗ trợ bởi AI.",
                     heroCta: "Khám Phá Giải Pháp",
@@ -664,23 +658,12 @@
                 document.getElementById("footer-text").textContent = translations[lang].footerText;
                 
                 // Update nav links
-                document.querySelector('[data-translate="nav-about"]').textContent = translations[lang].navAbout;
-                document.querySelector('[data-translate="nav-partners"]').textContent = translations[lang].navPartners;
-                document.querySelector('[data-translate="nav-investors"]').textContent = translations[lang].navInvestors;
-                // Since the original code has other nav links that are removed,
-                // I'm adding a safeguard here to prevent errors.
-                const navSolution = document.querySelector('[data-translate="nav-solution"]');
-                if (navSolution) navSolution.textContent = translations[lang].navSolution;
-                const navHowItWorks = document.querySelector('[data-translate="nav-how-it-works"]');
-                if (navHowItWorks) navHowItWorks.textContent = translations[lang].navHowItWorks;
-                const navImpact = document.querySelector('[data-translate="nav-impact"]');
-                if (navImpact) navImpact.textContent = translations[lang].navImpact;
-                const navAdvantage = document.querySelector('[data-translate="nav-advantage"]');
-                if (navAdvantage) navAdvantage.textContent = translations[lang].navAdvantage;
-                const navDemo = document.querySelector('[data-translate="nav-demo"]');
-                if (navDemo) navDemo.textContent = translations[lang].navDemo;
-                const navContact = document.querySelector('[data-translate="nav-contact"]');
-                if (navContact) navContact.textContent = translations[lang].navContact;
+                document.querySelector('[data-translate="nav-solution"]').textContent = translations[lang].navSolution;
+                document.querySelector('[data-translate="nav-how-it-works"]').textContent = translations[lang].navHowItWorks;
+                document.querySelector('[data-translate="nav-impact"]').textContent = translations[lang].navImpact;
+                document.querySelector('[data-translate="nav-advantage"]').textContent = translations[lang].navAdvantage;
+                document.querySelector('[data-translate="nav-demo"]').textContent = translations[lang].navDemo;
+                document.querySelector('[data-translate="nav-contact"]').textContent = translations[lang].navContact;
 
                 // Re-run step details update to apply new language
                 const activeStep = document.querySelector(".process-step.active");
