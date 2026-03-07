@@ -69,7 +69,7 @@ export function DashboardPage() {
           <ul className="space-y-2">
             <li>
               <a
-                href="/app/api-keys"
+                href="/app/#/api-keys"
                 className="text-blue-600 hover:underline"
               >
                 Manage API Keys
@@ -77,7 +77,7 @@ export function DashboardPage() {
             </li>
             <li>
               <a
-                href="https://api.regenaisolutions.com/gateway/docs"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:underline"
