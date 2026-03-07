@@ -153,6 +153,7 @@
             </nav>
             <div class="flex items-center space-x-4">
                 <a href="#contact" class="cta-button bg-[#6B8E23] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#55711B]" data-translate="nav-contact">Contact</a>
+                <a href="/app/login" class="cta-button bg-white text-[#6B8E23] font-bold py-2 px-6 rounded-full shadow-lg border-2 border-[#6B8E23] hover:bg-[#6B8E23] hover:text-white transition-colors" data-translate="nav-login">Login</a>
                 <div class="flex space-x-2">
                     <button id="lang-en" class="text-gray-600 font-bold hover:text-[#6B8E23] font-bold">EN</button>
                     <button id="lang-vi" class="text-gray-600 font-medium hover:text-[#6B8E23]">VI</button>
@@ -434,6 +435,7 @@
                     navAbout: "About", // Added new translation keys
                     navPartners: "For Partners",
                     navInvestors: "For Investors",
+                    navLogin: "Login",
                     heroHeading: "Empowering Farmers, Restoring Our Planet.",
                     heroParagraph: "We're democratizing the carbon market for smallholder farmers with our revolutionary, low-cost, AI-powered platform.",
                     heroCta: "Discover Our Solution",
@@ -499,6 +501,7 @@
                     navAbout: "Giới thiệu", // Added new translation keys
                     navPartners: "Đối tác",
                     navInvestors: "Nhà đầu tư",
+                    navLogin: "Đăng nhập",
                     heroHeading: "Trao Quyền Cho Nông Dân, Phục Hồi Hành Tinh.",
                     heroParagraph: "Chúng tôi dân chủ hóa thị trường carbon cho các nông hộ nhỏ với nền tảng đột phá, chi phí thấp, được hỗ trợ bởi AI.",
                     heroCta: "Khám Phá Giải Pháp",
@@ -667,6 +670,7 @@
                 document.querySelector('[data-translate="nav-about"]').textContent = translations[lang].navAbout;
                 document.querySelector('[data-translate="nav-partners"]').textContent = translations[lang].navPartners;
                 document.querySelector('[data-translate="nav-investors"]').textContent = translations[lang].navInvestors;
+                document.querySelector('[data-translate="nav-login"]').textContent = translations[lang].navLogin;
                 // Since the original code has other nav links that are removed,
                 // I'm adding a safeguard here to prevent errors.
                 const navSolution = document.querySelector('[data-translate="nav-solution"]');
